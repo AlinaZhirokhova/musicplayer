@@ -1,5 +1,5 @@
-import App from './music-player'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 
-// eslint-disable-next-line no-undef
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'))
 wrapper.render(App)
