@@ -1,4 +1,3 @@
-import tracks from'./components/tracks.jsx';
 import { Navigation } from './components/navigation.jsx'
 import { Search } from './components/search.jsx'
 import { Filter } from './components/filter.jsx'
@@ -19,20 +18,7 @@ const App = () => {
           <Filter />
           <div className="centerblock__content">
             <PlaylistTitle />
-            <div className="content__playlist playlist">
-              {tracks.map((track, index) => {
-                return (
-                  <Playlist
-                    key={index}
-                    title={track.title}
-                    titleSpan={track.titleSpan}
-                    author={track.author}
-                    album={track.album}
-                    time={track.time}
-                  />
-                )
-              })}
-            </div>
+            <Playlist />
           </div>
         </div>
         <Sidebar />
