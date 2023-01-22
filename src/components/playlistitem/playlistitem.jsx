@@ -29,7 +29,7 @@ export const PlaylistItem = (props) => {
             <svg className="track__time-svg" alt="time">
               <use xlinkHref="public/sprite.svg#icon-like"></use>
             </svg>
-            <span className="track__time-text">{props.time}</span>
+            <span className="track__time-text">{Math.floor(props.time / 60)+':'+(props.time % 60)}</span>
           </div>
         </div>
       </div>

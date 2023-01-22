@@ -1,11 +1,10 @@
-import { Navigation } from './components/navigation.jsx'
-import { Search } from './components/search.jsx'
-import { Filter } from './components/filter.jsx'
-import { PlaylistTitle } from './components/playlisttitle.jsx'
-import { Playlist } from './components/playlist.jsx'
-import { Sidebar } from './components/sidebar.jsx'
-import { Bar } from './components/bar.jsx'
-// import '../public/css/style.scss'
+import { Navigation } from './components/navigation/navigation.jsx'
+import { Search } from './components/search/search.jsx'
+import { Filter } from './components/filter/filter.jsx'
+import { PlaylistTitle } from './components/playlisttitle/playlisttitle.jsx'
+import { Playlist } from './components/playlist/playlist.jsx'
+import { Sidebar } from './components/sidebar/sidebar.jsx'
+import { Bar } from './components/bar/bar.jsx'
 
 const App = () => {
   return (

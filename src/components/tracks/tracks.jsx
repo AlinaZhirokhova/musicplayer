@@ -1,11 +1,11 @@
 const tracks = [
     {
       id: 1,
-      title: 'Guilt',
-      titleSpan: '',
-      author: 'Nero',
-      album: 'Welcome Reality',
-      time: '',
+      title: "Guilt",
+      titleSpan: "",
+      author: "Nero",
+      album: "Welcome Reality",
+      time: "",
     },
     {
       id: 2,

@@ -226,6 +226,7 @@ body {
     &__content {
         display: flex;
         flex-direction: column;
+        overflow-y: scroll;
     }
 }
 
