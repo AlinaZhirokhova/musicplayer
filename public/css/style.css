@@ -51,7 +51,7 @@ body {
 
 .container {
   max-width: 1920px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
   position: relative;
   background-color: #181818;
@@ -95,8 +95,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -576,7 +575,7 @@ body {
 }
 
 .bar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;

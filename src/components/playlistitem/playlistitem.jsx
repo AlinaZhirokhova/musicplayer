@@ -5,7 +5,7 @@ export const PlaylistItem = (props) => {
           <div className="track__title">
             <div className="track__title-image">
               <svg className="track__title-svg" alt="music">
-                <use xlinkHref="public/sprite.svg#icon-note"></use>
+                <use xlinkHref="../../../public/img/icon/sprite.svg#icon-note"></use>
               </svg>
             </div>
             <div className="track__title-text">
