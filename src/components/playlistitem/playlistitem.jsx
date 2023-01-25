@@ -1,11 +1,23 @@
+import note from '../../img/icon/sprite.svg#icon-note'
+import like from '../../img/icon/sprite.svg#icon-like'
+
 export const PlaylistItem = (props) => {
+  const getTime = (time) => {
+    let ost = 0
+    if (time % 60 < 10) {
+      ost = '0' + (time % 60)
+    } else {
+      ost = time % 60
+    }
+    return Math.floor(time / 60) + ':' + ost
+  }
     return (
       <div className="playlist__item" id={props.id}>
         <div className="playlist__track track">
           <div className="track__title">
             <div className="track__title-image">
               <svg className="track__title-svg" alt="music">
-                <use xlinkHref="../../../public/img/icon/sprite.svg#icon-note"></use>
+                <use xlinkHref={note}></use>
               </svg>
             </div>
             <div className="track__title-text">
@@ -27,9 +39,9 @@ export const PlaylistItem = (props) => {
           </div>
           <div className="track__time">
             <svg className="track__time-svg" alt="time">
-              <use xlinkHref="public/sprite.svg#icon-like"></use>
+              <use xlinkHref={like}></use>
             </svg>
-            <span className="track__time-text">{Math.floor(props.time / 60)+':'+(props.time % 60)}</span>
+            <span className="track__time-text">{getTime(props.time)}</span>
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+import img1 from '../../img/playlist01.png'
+import img2 from '../../img/playlist02.png'
+import img3 from '../../img/playlist03.png'
+
 export const Sidebar = () => {
     return (
       <div className="main__sidebar sidebar">
@@ -11,7 +15,7 @@ export const Sidebar = () => {
             <a className="sidebar__link" href="#">
               <img
                 className="sidebar__img"
-                src="img/playlist01.png"
+                src= {img1}
                 alt="day's playlist"
               />
             </a>
@@ -20,7 +24,7 @@ export const Sidebar = () => {
             <a className="sidebar__link" href="#">
               <img
                 className="sidebar__img"
-                src="img/playlist02.png"
+                src={img2}
                 alt="day's playlist"
               />
             </a>
@@ -29,7 +33,7 @@ export const Sidebar = () => {
             <a className="sidebar__link" href="#">
               <img
                 className="sidebar__img"
-                src="img/playlist03.png"
+                src={img3}
                 alt="day's playlist"
               />
             </a>

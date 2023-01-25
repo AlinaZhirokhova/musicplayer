@@ -1,3 +1,5 @@
+import watch from '../../img/icon/sprite.svg#icon-watch'
+
 export const PlaylistTitle = () => {
     return (
       <div className="content__title playlist-title">
@@ -6,7 +8,7 @@ export const PlaylistTitle = () => {
         <div className="playlist-title__col col03">АЛЬБОМ</div>
         <div className="playlist-title__col col04">
           <svg className="playlist-title__svg" alt="time">
-            <use xlinkHref="img/icon/sprite.svg#icon-watch"></use>
+            <use xlinkHref={watch}></use>
           </svg>
         </div>
       </div>
