@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -40,7 +40,7 @@ body {
   height: 100%;
   font-family: 'StratosSkyeng', sans-serif;
   color: #FFFFFF;
-}
+} */
 
 .wrapper {
   width: 100%;

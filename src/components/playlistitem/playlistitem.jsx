@@ -1,5 +1,5 @@
-import note from '../../img/icon/sprite.svg#icon-note'
-import like from '../../img/icon/sprite.svg#icon-like'
+import {ReactComponent as NoteIcon} from '../../img/icon/note.svg'
+import {ReactComponent as LikeIcon} from '../../img/icon/like.svg'
 
 export const PlaylistItem = (props) => {
   const getTime = (time) => {
@@ -16,9 +16,7 @@ export const PlaylistItem = (props) => {
         <div className="playlist__track track">
           <div className="track__title">
             <div className="track__title-image">
-              <svg className="track__title-svg" alt="music">
-                <use xlinkHref={note}></use>
-              </svg>
+              <NoteIcon className="track__title-svg" alt="music"/>
             </div>
             <div className="track__title-text">
               <a className="track__title-link" href="#">
@@ -38,9 +36,7 @@ export const PlaylistItem = (props) => {
             </a>
           </div>
           <div className="track__time">
-            <svg className="track__time-svg" alt="time">
-              <use xlinkHref={like}></use>
-            </svg>
+            <LikeIcon className="track__time-svg" alt="time"/>
             <span className="track__time-text">{getTime(props.time)}</span>
           </div>
         </div>

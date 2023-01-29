@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+import * as S from './filterStyle.jsx'
 
 export const Filter = () => {
   const [tracks, setTracks] = useState([])
   const [authorArr, setAuthorArr] = useState([])
   const [genreArr, setGenreArr] = useState([])
-  const [filter,setFilter] = useState('')
-  
+  const [filter, setFilter] = useState('')
+  const [popupHtml, setPopupHtml] = useState([])
+  // const [currentArr, setCurrentArr] = useState([])
 
   useEffect(() => {
     const getTracks = async () => {
@@ -35,24 +37,44 @@ export const Filter = () => {
   console.log(authorArr)
   console.log(genreArr)
   console.log(filter)
+  console.log(popupHtml)
+  
+  useEffect(() => {
+    if (filter === 'author') {
+      setPopupHtml(Array.from(authorArr))
+    } else if (filter === 'genre') {
+      setPopupHtml(Array.from(genreArr))
+    }
+  }, [filter])
 
-
-  function handleClick (event) {
+  function handleClick(event) {
     setFilter(event.target.dataset.type)
   }
 
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-      <div className="filter__button button-author _btn-text" onClick = {handleClick} data-type = 'author'>исполнителю
-      <div className="popup__filter">
-        <span>Lorem1</span>
-        <span>Lorem2</span>
-        <span>Lorem3</span>
-      </div>
-      </div>
-      <div className="filter__button button-year _btn-text" onClick = {handleClick} data-type = 'year'>году выпуска</div>
-      <div className="filter__button button-genre _btn-text" onClick = {handleClick} data-type = 'genre'>жанру</div>
-    </div>
+    <S.Filter>
+      <S.FilterTitle>Искать по:</S.FilterTitle>
+      <S.FilterButton onClick={handleClick} data-type="author">
+        исполнителю
+        {/* <div className="filter__button button-author _btn-text" onClick = {handleClick} data-type = 'author'>исполнителю */}
+        {filter == 'author' && <S.PopupFilter>
+          {popupHtml.map((item) => {
+            return <span key='1'>{item}</span>
+          })}
+        </S.PopupFilter>}
+      </S.FilterButton>
+      <S.FilterButton onClick={handleClick} data-type="year">
+        году выпуска
+      </S.FilterButton>
+      <S.FilterButton onClick={handleClick} data-type="genre">
+        жанру
+        {filter == 'genre' && <S.PopupFilter>
+          {popupHtml.map((item) => {
+            return <span key='1'>{item}</span>
+          })}
+        </S.PopupFilter>}
+      </S.FilterButton>
+
+    </S.Filter>
   )
 }

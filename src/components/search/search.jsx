@@ -1,15 +1,15 @@
+import {ReactComponent as SearchIcon} from '../../img/icon/search.svg'
+import * as S from './searchStyled'
+
 export const Search = () => {
     return (
-      <div className="centerblock__search search">
-        <svg className="search__svg">
-          <use xlinkHref="img/icon/sprite.svg#icon-search"></use>
-        </svg>
-        <input
-          className="search__text"
+      <S.SearchContainer>
+        <SearchIcon className="search__svg"/>
+        <S.SearchText
           type="search"
           placeholder="Поиск"
           name="search"
         />
-      </div>
+      </S.SearchContainer>
     )
 }

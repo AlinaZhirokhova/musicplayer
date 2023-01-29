@@ -5,26 +5,27 @@ import { PlaylistTitle } from './components/playlisttitle/playlisttitle.jsx'
 import { Playlist } from './components/playlist/playlist.jsx'
 import { Sidebar } from './components/sidebar/sidebar.jsx'
 import { Bar } from './components/bar/bar.jsx'
+import * as S from './AppStyle.jsx'
 
 const App = () => {
   return (
-    <div className="container">
-      <main className="main">
+    <S.Container>
+      <S.Main>
         <Navigation />
-        <div className="main__centerblock centerblock">
+        <S.MainCenterBlock>
           <Search />
-          <h2 className="centerblock__h2">Треки</h2>
+          <S.MainCenterBlockTitle>Треки</S.MainCenterBlockTitle>
           <Filter />
-          <div className="centerblock__content">
+          <S.MainCenterBlockContent>
             <PlaylistTitle />
             <Playlist />
-          </div>
-        </div>
+          </S.MainCenterBlockContent>
+        </S.MainCenterBlock>
         <Sidebar />
-      </main>
+      </S.Main>
       <Bar />
-      <footer className="footer"></footer>
-    </div>
+      <S.Footer></S.Footer>
+    </S.Container>
   )
 }
 

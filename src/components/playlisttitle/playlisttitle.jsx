@@ -1,4 +1,4 @@
-import watch from '../../img/icon/sprite.svg#icon-watch'
+import {ReactComponent as Watch} from '../../img/icon/watch.svg'
 
 export const PlaylistTitle = () => {
     return (
@@ -7,9 +7,7 @@ export const PlaylistTitle = () => {
         <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
         <div className="playlist-title__col col03">АЛЬБОМ</div>
         <div className="playlist-title__col col04">
-          <svg className="playlist-title__svg" alt="time">
-            <use xlinkHref={watch}></use>
-          </svg>
+          <Watch className="playlist-title__svg" alt="time"/>
         </div>
       </div>
     )

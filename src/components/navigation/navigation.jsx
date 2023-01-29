@@ -1,35 +1,36 @@
 import React from 'react'
 import logo from '../../img/logo.png'
 const { useState } = React
+import * as S from './navigationStyle.jsx'
 
 export const Navigation = () => {
     const [visible, setVisible] = useState(true)
     const toggleVisibility = () => setVisible(!visible)
 
     return (
-      <nav className="main__nav nav">
-          <div className="nav__logo logo">
-              <img className="logo__image" src={logo} alt="logo" />
-          </div>
-          <div className="nav__burger burger" onClick={toggleVisibility}>
-              <span className="burger__line"></span>
-              <span className="burger__line"></span>
-              <span className="burger__line"></span>
-          </div>
+      <S.MainNavigation>
+          <S.LogoNavigation>
+              <S.LogoImageNavigation src={logo} alt="logo" />
+          </S.LogoNavigation>
+          <S.BurgerNavigation onClick={toggleVisibility}>
+              <S.BurgerLine></S.BurgerLine>
+              <S.BurgerLine></S.BurgerLine>
+              <S.BurgerLine></S.BurgerLine>
+          </S.BurgerNavigation>
           {visible || (
-          <div className="nav__menu menu">
-              <ul className="menu__list">
-                  <li className="menu__item">
-                      <a href="http://" className="menu__link">Главное</a>
-                  </li>
-                  <li className="menu__item">
-                      <a href="http://" className="menu__link">Мой плейлист</a>
-                      </li>
-                  <li className="menu__item">
-                      <a href="http://" className="menu__link">Войти</a>
-                  </li>
-              </ul>
-          </div>)}
-      </nav>
+          <S.MenuNavigation>
+              <S.MenuListNavigation>
+                  <S.MenuItemNavigation>
+                      <S.MenuLinkNavigation href="http://">Главное</S.MenuLinkNavigation>
+                  </S.MenuItemNavigation>
+                  <S.MenuItemNavigation>
+                      <S.MenuLinkNavigation href="http://">Мой плейлист</S.MenuLinkNavigation>
+                    </S.MenuItemNavigation>
+                  <S.MenuItemNavigation>
+                      <S.MenuLinkNavigation href="http://">Войти</S.MenuLinkNavigation>
+                  </S.MenuItemNavigation>
+              </S.MenuListNavigation>
+          </S.MenuNavigation>)}
+      </S.MainNavigation>
     )
   }
