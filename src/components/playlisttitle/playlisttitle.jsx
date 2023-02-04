@@ -1,4 +1,3 @@
-import {ReactComponent as Watch} from '../../img/icon/watch.svg'
 import * as S from './playlisttitleStyle.jsx'
 
 export const PlaylistTitle = () => {
@@ -8,7 +7,7 @@ export const PlaylistTitle = () => {
         <S.PlaylistTitleCol02>ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
         <S.PlaylistTitleCol03>АЛЬБОМ</S.PlaylistTitleCol03>
         <S.PlaylistTitleCol04>
-          <Watch className="playlist-title__svg" alt="time"/>
+          <S.WatchSvg alt="time"/>
         </S.PlaylistTitleCol04>
       </S.PlaylistTitle>
     )

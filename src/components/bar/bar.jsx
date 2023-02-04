@@ -10,7 +10,7 @@ import { SkeletonBar } from '../skeletonBar/skeletonBar'
 
 export const Bar = () => {
   const [isLoading, setIsLoading] = useState(true)
-  setTimeout(() => {setIsLoading(false)}, 2000)
+  setTimeout(() => {setIsLoading(false)}, 5000)
 
   return (
     <S.BarContainer>

@@ -89,15 +89,15 @@
 //   cursor: pointer;
 // }
 
-._btn-icon:active .track-play__like-svg,
-._btn-icon:active .track-play__dislike-svg {
-  fill: #696969;
-  stroke: #ffffff;
-  cursor: pointer;
-}
+// ._btn-icon:active .track-play__like-svg,
+// ._btn-icon:active .track-play__dislike-svg {
+//   fill: #696969;
+//   stroke: #ffffff;
+//   cursor: pointer;
+// }
 
 // =================== main ====================//
-.main {
+// .main {
   // flex: 1 1 auto;
   // display: flex;
   // flex-wrap: wrap;
@@ -109,17 +109,17 @@
   //   padding: 20px 0 20px 36px;
   // }
 
-  &__centerblock {
-    width: auto;
-    flex-grow: 3;
-    padding: 20px 40px 20px 111px;
-  }
+  // &__centerblock {
+  //   width: auto;
+  //   flex-grow: 3;
+  //   padding: 20px 40px 20px 111px;
+  // }
 
   // &__sidebar {
   //   max-width: 418px;
   //   padding: 20px 90px 20px 78px;
   // }
-}
+// }
 
 // .nav {
   // &__logo {
@@ -213,14 +213,15 @@
 //   // }
 // }
 
-.search {
-  &__svg {
-    width: 17px;
-    height: 17px;
-    margin-right: 5px;
-    stroke: #ffffff;
-    fill: transparent;
-  }
+// .search {
+  // &__svg {
+  //   width: 17px;
+  //   height: 17px;
+  //   margin-right: 5px;
+  //   stroke: #ffffff;
+  //   fill: transparent;
+  //   background-image: url(../../img/icon/search.svg);
+  // }
 
 //   &__text {
 //     flex-grow: 100;
@@ -242,7 +243,7 @@
 //       line-height: 24px;
 //     }
 //   }
-}
+// }
 
 // .filter {
   // &__title {
@@ -311,7 +312,7 @@
   // }
 // }
 
-.playlist-title {
+// .playlist-title {
   // &__col {
   //   font-style: normal;
   //   font-weight: 400;
@@ -322,13 +323,13 @@
   //   text-transform: uppercase;
   // }
 
-  &__svg {
-    width: 12px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-  }
-}
+//   &__svg {
+//     width: 12px;
+//     height: 12px;
+//     fill: transparent;
+//     stroke: #696969;
+//   }
+// }
 
 // .col01 {
 //   width: 447px;
@@ -361,7 +362,7 @@
 //   }
 // }
 
-.track {
+// .track {
   // &__title {
   //   display: flex;
   //   flex-direction: row;
@@ -380,12 +381,12 @@
   //   margin-right: 17px;
   // }
 
-  &__title-svg {
-    width: 18px;
-    height: 17px;
-    fill: transparent;
-    stroke: #4e4e4e;
-  }
+  // &__title-svg {
+  //   width: 18px;
+  //   height: 17px;
+  //   fill: transparent;
+  //   stroke: #4e4e4e;
+  // }
 
   //&__title-text {}
 
@@ -434,13 +435,13 @@
 
   //&__time {}
 
-  &__time-svg {
-    width: 14px;
-    height: 12px;
-    margin-right: 17px;
-    fill: transparent;
-    stroke: #696969;
-  }
+  // &__time-svg {
+  //   width: 14px;
+  //   height: 12px;
+  //   margin-right: 17px;
+  //   fill: transparent;
+  //   stroke: #696969;
+  // }
 
   // &__time-text {
   //   font-style: normal;
@@ -450,7 +451,7 @@
   //   text-align: right;
   //   color: #696969;
   // }
-}
+// }
 
 // .sidebar {
   // &__personal {
@@ -513,7 +514,7 @@
 
 // =================== bar-player ====================//
 
-.bar {
+// .bar {
   // position: fixed;
   // bottom: 0;
   // left: 0;
@@ -550,9 +551,9 @@
   //   align-items: center;
   //   padding: 0 92px 0 0;
   // }
-}
+// }
 
-.player {
+// .player {
   // &__controls {
   //   display: flex;
   //   flex-direction: row;
@@ -573,61 +574,61 @@
   //   margin-right: 23px;
   // }
 
-  &__btn-prev-svg {
-    width: 15px;
-    height: 14px;
-  }
+  // &__btn-prev-svg {
+  //   width: 15px;
+  //   height: 14px;
+  // }
 
   // &__btn-play {
   //   margin-right: 23px;
   // }
 
-  &__btn-play-svg {
-    width: 22px;
-    height: 20px;
-    fill: #d9d9d9;
-  }
+  // &__btn-play-svg {
+  //   width: 22px;
+  //   height: 20px;
+  //   fill: #d9d9d9;
+  // }
 
   // &__btn-next {
   //   margin-right: 28px;
   //   fill: #a53939;
   // }
 
-  &__btn-next-svg {
-    width: 15px;
-    height: 14px;
-    fill: inherit;
-    stroke: #d9d9d9;
-  }
+  // &__btn-next-svg {
+  //   width: 15px;
+  //   height: 14px;
+  //   fill: inherit;
+  //   stroke: #d9d9d9;
+  // }
 
   // &__btn-repeat {
   //   margin-right: 24px;
   // }
 
-  &__btn-repeat-svg {
-    width: 18px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-  }
+  // &__btn-repeat-svg {
+  //   width: 18px;
+  //   height: 12px;
+  //   fill: transparent;
+  //   stroke: #696969;
+  // }
 
   // &__btn-shuffle {
   //   display: flex;
   //   align-items: center;
   // }
 
-  &__btn-shuffle-svg {
-    width: 19px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-  }
+  // &__btn-shuffle-svg {
+  //   width: 19px;
+  //   height: 12px;
+  //   fill: transparent;
+  //   stroke: #696969;
+  // }
 
   // &__track-play {
   //   display: flex;
   //   flex-direction: row;
   // }
-}
+// }
 
 .track-play {
   // &__contain {
@@ -649,12 +650,12 @@
   //   grid-area: image;
   // }
 
-  &__svg {
-    width: 18px;
-    height: 17px;
-    fill: transparent;
-    stroke: #4e4e4e;
-  }
+  // &__svg {
+  //   width: 18px;
+  //   height: 17px;
+  //   fill: transparent;
+  //   stroke: #4e4e4e;
+  // }
 
   // &__author {
   //   grid-area: author;
@@ -690,31 +691,31 @@
   //   margin-left: 26%;
   // }
 
-  &__like,
-  &__dislike {
-    padding: 5px;
-  }
+  // &__like,
+  // &__dislike {
+  //   padding: 5px;
+  // }
 
-  &__like-svg {
-    width: 14px;
-    height: 12px;
-    fill: transparent;
-    stroke: #696969;
-  }
+  // &__like-svg {
+  //   width: 14px;
+  //   height: 12px;
+  //   fill: transparent;
+  //   stroke: #696969;
+  // }
 
   // &__dislike {
   //   margin-left: 28.5px;
   // }
 
-  &__dislike-svg {
-    width: 14.34px;
-    height: 13px;
-    fill: transparent;
-    stroke: #696969;
-  }
+  // &__dislike-svg {
+  //   width: 14.34px;
+  //   height: 13px;
+  //   fill: transparent;
+  //   stroke: #696969;
+  // }
 }
 
-.volume {
+// .volume {
   // &__content {
   //   display: flex;
   //   flex-direction: row;
@@ -728,18 +729,18 @@
   //   margin-right: 17px;
   // }
 
-  &__svg {
-    width: 13px;
-    height: 18px;
-    fill: transparent;
-  }
+  // &__svg {
+  //   width: 13px;
+  //   height: 18px;
+  //   fill: transparent;
+  // }
 
   // &__progress {
   //   width: 109px;
   // }
 
-  &__progress-line {
-    width: 109px;
-    height: 2px;
-  }
-}
+  // &__progress-line {
+  //   width: 109px;
+  //   height: 2px;
+  // }
+// }

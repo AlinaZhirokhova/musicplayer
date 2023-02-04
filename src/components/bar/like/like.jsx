@@ -1,9 +1,9 @@
-import {ReactComponent as LikeIcon} from '../../../img/icon/like.svg'
+import * as S from './likeStyle.jsx'
 
 export const Like = () => {
   return (
-    <div className="track-play__like _btn-icon">
-      <LikeIcon className="track-play__like-svg" alt="like" />
-    </div>
+    <S.LikeTrackPlay>
+      <S.LikeIconSvg alt="like" />
+    </S.LikeTrackPlay>
   )
 }

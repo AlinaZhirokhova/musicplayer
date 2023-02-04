@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ReactComponent as VolumeIcon } from '../../../img/icon/volume.svg'
 
 export const BlockVolume = styled.div`
   width: auto;
@@ -18,6 +19,7 @@ export const ImageVolume = styled.div`
   width: 13px;
   height: 18px;
   margin-right: 58px;
+  fill: transparent;
 `
 
 export const ProgressVolume = styled.div`
@@ -28,5 +30,11 @@ export const ProgressVolume = styled.div`
 
 export const ProgressLineVolume = styled.input`
   width: 109px;
-  he
+  height: 2px;
+`
+
+export const VolumeIconSvg = styled(VolumeIcon)`
+  width: 13px;
+  height: 18px;
+  fill: transparent;
 `

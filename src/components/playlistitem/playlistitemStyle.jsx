@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { ReactComponent as NoteIcon } from '../../img/icon/note.svg'
+import { ReactComponent as LikeIcon } from '../../img/icon/like.svg'
 
 export const PlaylistItemContainer = styled.div`
   width: 100%;
@@ -85,4 +87,23 @@ export const TrackTimeText = styled.span`
   line-height: 24px;
   text-align: right;
   color: #696969;
+`
+
+export const LikeIconSvg = styled(LikeIcon)`
+  width: 14px;
+  height: 12px;
+  margin-right: 17px;
+  fill: transparent;
+  stroke: #696969;
+`
+
+export const NoteIconSvg = styled(NoteIcon)`
+  width: 51px;
+  height: 51px;
+  padding: 16px;
+  background: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 17px;
 `

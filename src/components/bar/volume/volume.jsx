@@ -1,4 +1,3 @@
-import {ReactComponent as VolumeIcon} from '../../../img/icon/volume.svg'
 import * as S from './volumeStyle'
 
 export const Volume = () => {
@@ -6,11 +5,10 @@ export const Volume = () => {
         <S.BlockVolume>
               <S.ContentVolume>
                 <S.ImageVolume>
-                  <VolumeIcon className="volume__svg" alt="volume" />
+                  <S.VolumeIconSvg alt="volume" />
                 </S.ImageVolume>
                 <S.ProgressVolume>
-                  <input
-                    className="volume__progress-line"
+                  <S.ProgressLineVolume
                     type="range"
                     name="range"
                   />

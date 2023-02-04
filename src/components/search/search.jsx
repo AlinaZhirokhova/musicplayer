@@ -1,10 +1,9 @@
-import {ReactComponent as SearchIcon} from '../../img/icon/search.svg'
 import * as S from './searchStyled'
 
 export const Search = () => {
     return (
       <S.SearchContainer>
-        <SearchIcon className="search__svg"/>
+        <S.SearchIconSvg />
         <S.SearchText
           type="search"
           placeholder="Поиск"

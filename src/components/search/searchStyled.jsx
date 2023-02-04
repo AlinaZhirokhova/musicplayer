@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {ReactComponent as SearchIcon} from '../../img/icon/search.svg'
 
 
 export const SearchText = styled.input`
@@ -31,10 +32,11 @@ export const SearchContainer = styled.div`
   align-items: center;
 `
 
-// export const SearchIcon = styled.svg`
-//   width: 17px;
-//   height: 17px;
-//   margin-right: 5px;
-//   stroke: #ffffff;
-//   fill: transparent;
-// `
+export const SearchIconSvg = styled(SearchIcon)`
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  margin-left: 10px;
+  stroke: #ffffff;
+  fill: transparent;
+`

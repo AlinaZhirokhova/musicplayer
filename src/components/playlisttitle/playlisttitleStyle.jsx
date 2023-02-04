@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ReactComponent as Watch } from '../../img/icon/watch.svg'
 
 export const PlaylistTitle = styled.div`
   display: flex;
@@ -32,4 +33,11 @@ export const PlaylistTitleCol03 = styled(PlaylistTitleCol)`
 export const PlaylistTitleCol04 = styled(PlaylistTitleCol)`
   width: 60px;
   text-align: end;
+`
+
+export const WatchSvg = styled(Watch)`
+  width: 12px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
 `

@@ -1,10 +1,10 @@
-import { ReactComponent as ShuffleIcon } from '../../../img/icon/shuffle.svg'
-import * as S from './shuffleStyle'
+import * as S from './shuffleStyle.jsx'
+import { Icon } from '../barStyled.jsx'
 
 export const Shuffle = () => {
   return (
-    <S.ShuffleIcon>
-      <ShuffleIcon />
-    </S.ShuffleIcon>
+    <Icon>
+      <S.ShuffleIconSvg alt="shuffle"/>
+    </Icon>
   )
 }

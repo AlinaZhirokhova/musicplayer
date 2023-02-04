@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ReactComponent as NoteIcon } from '../../../img/icon/note.svg'
 
 export const ContainTrackPlay = styled.div`
   width: auto;
@@ -17,7 +18,6 @@ export const ImageTrackPlay = styled.div`
   justify-content: center;
   margin-right: 12px;
   grid-area: image;
-  
 `
 
 export const AuthorTrackPlay = styled.div`
@@ -45,4 +45,11 @@ export const AlbumLinkTrackPlay = styled.a`
   font-size: 13px;
   line-height: 24px;
   color: #ffffff;
+`
+
+export const NoteIconSvg = styled(NoteIcon)`
+  width: 18px;
+  height: 17px;
+  fill: transparent;
+  stroke: #4e4e4e;
 `

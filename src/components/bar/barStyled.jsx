@@ -18,6 +18,7 @@ export const Icon = styled.div`
     stroke: #acacac;
     cursor: pointer;
   }
+
   &:active svg {
     fill: transparent;
     stroke: #ffffff;
