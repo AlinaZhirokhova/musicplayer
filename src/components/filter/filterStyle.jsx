@@ -48,7 +48,7 @@ export const PopupFilter = styled.div`
   height: 305px;
   left: 0;
   top: 48px;
-  border-radius: 5px;
+  border-radius: 12px;
   padding: 34px;
   font-size: 22px;
   background-color: #313131;
@@ -66,4 +66,27 @@ export const PopupFilter = styled.div`
     color: #b672ff;
     text-decoration: underline;
   }
+`
+
+export const PopupFilterYear = styled.div`
+  position: absolute;
+  width: 403px;
+  height: 92px;
+  left: 0;
+  top: 48px;
+  border-radius: 12px;
+  padding: 34px;
+  font-size: 20px;
+  background-color: #313131;
+  display: flex;
+  flex-direction: now;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  cursor: default;
+`
+
+export const PopupFilterYearNew = styled.input`
+  accent-color: white;
+  cursor: pointer;
 `

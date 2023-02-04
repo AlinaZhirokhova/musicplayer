@@ -1,21 +1,22 @@
 import {ReactComponent as NoteIcon} from '../../../img/icon/note.svg'
+import * as S from './containStyle.jsx'
 
 export const Contain = () => {
   return (
-    <div className="track-play__contain">
-      <div className="track-play__image">
+    <S.ContainTrackPlay>
+      <S.ImageTrackPlay>
         <NoteIcon className="track-play__svg" alt="music" />
-      </div>
-      <div className="track-play__author">
-        <a className="track-play__author-link" href="http://">
+      </S.ImageTrackPlay>
+      <S.AuthorTrackPlay>
+        <S.AuthorLinkTrackPlay href="http://">
           Ты та...
-        </a>
-      </div>
-      <div className="track-play__album">
-        <a className="track-play__album-link" href="http://">
+        </S.AuthorLinkTrackPlay>
+      </S.AuthorTrackPlay>
+      <S.AlbumTrackPlay>
+        <S.AlbumLinkTrackPlay href="http://">
           Баста
-        </a>
-      </div>
-    </div>
+        </S.AlbumLinkTrackPlay>
+      </S.AlbumTrackPlay>
+    </S.ContainTrackPlay>
   )
 }

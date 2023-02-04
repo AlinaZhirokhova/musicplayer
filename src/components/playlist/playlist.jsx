@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { PlaylistItem } from '../playlistitem/playlistitem.jsx'
+import * as S from './playlistStyle.jsx'
+import { SkeletonTrack } from '../skeletonTrack/skeletonTrack.jsx'
+import { nanoid } from 'nanoid'
 
 export const Playlist = () => {
   const [tracks, setTracks] = useState([])
@@ -18,10 +21,10 @@ export const Playlist = () => {
     console.log(tracks);
   }, [])
   return (
-    <div className="content__playlist playlist">
+    <S.PlaylistContainer>
       {
         isLoading 
-        ? Array.from({length:7}).map(() => 'Идет загрузка')
+        ? Array.from({length:7}).map(() => <SkeletonTrack key={nanoid()}/>)
         : tracks.map((track) => {
         return (
           <PlaylistItem
@@ -34,6 +37,6 @@ export const Playlist = () => {
           />
         )
       })}
-    </div>
+    </S.PlaylistContainer>
   )
 }

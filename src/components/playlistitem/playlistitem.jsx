@@ -1,5 +1,6 @@
 import {ReactComponent as NoteIcon} from '../../img/icon/note.svg'
 import {ReactComponent as LikeIcon} from '../../img/icon/like.svg'
+import * as S from './playlistitemStyle.jsx'
 
 export const PlaylistItem = (props) => {
   const getTime = (time) => {
@@ -12,34 +13,34 @@ export const PlaylistItem = (props) => {
     return Math.floor(time / 60) + ':' + ost
   }
     return (
-      <div className="playlist__item" id={props.id}>
-        <div className="playlist__track track">
-          <div className="track__title">
-            <div className="track__title-image">
+      <S.PlaylistItemContainer id={props.id}>
+        <S.Track>
+          <S.TrackTitle>
+            <S.TrackTitleImage>
               <NoteIcon className="track__title-svg" alt="music"/>
-            </div>
-            <div className="track__title-text">
-              <a className="track__title-link" href="#">
+            </S.TrackTitleImage>
+            <S.TrackTitleText>
+              <S.TrackTitleLink href="#">
                 {props.title}{' '}
-                <span className="track__title-span">{props.titleSpan}</span>
-              </a>
-            </div>
-          </div>
-          <div className="track__author">
-            <a className="track__author-link" href="#">
+                <S.TrackTitleSpan>{props.titleSpan}</S.TrackTitleSpan>
+              </S.TrackTitleLink>
+            </S.TrackTitleText>
+          </S.TrackTitle>
+          <S.TrackAuthor>
+            <S.TrackAuthorLink href="#">
               {props.author}
-            </a>
-          </div>
-          <div className="track__album">
-            <a className="track__album-link" href="#">
+            </S.TrackAuthorLink>
+          </S.TrackAuthor>
+          <S.TrackAlbum>
+            <S.TrackAlbumLink href="#">
               {props.album}
-            </a>
-          </div>
-          <div className="track__time">
+            </S.TrackAlbumLink>
+          </S.TrackAlbum>
+          <S.TrackTime>
             <LikeIcon className="track__time-svg" alt="time"/>
-            <span className="track__time-text">{getTime(props.time)}</span>
-          </div>
-        </div>
-      </div>
+            <S.TrackTimeText>{getTime(props.time)}</S.TrackTimeText>
+          </S.TrackTime>
+        </S.Track>
+      </S.PlaylistItemContainer>
     )
 }

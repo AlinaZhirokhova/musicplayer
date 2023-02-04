@@ -1,9 +1,10 @@
 import { ReactComponent as NextIcon } from '../../../img/icon/next.svg'
+import * as S from './nextStyle'
 
 export const Next = () => {
   return (
-    <div className="player__btn-next">
+    <S.NextPlayer>
       <NextIcon />
-    </div>
+    </S.NextPlayer>
   )
 }

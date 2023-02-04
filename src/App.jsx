@@ -7,6 +7,7 @@ import { Sidebar } from './components/sidebar/sidebar.jsx'
 import { Bar } from './components/bar/bar.jsx'
 import * as S from './AppStyle.jsx'
 
+
 const App = () => {
   return (
     <S.Container>
@@ -22,6 +23,7 @@ const App = () => {
           </S.MainCenterBlockContent>
         </S.MainCenterBlock>
         <Sidebar />
+       
       </S.Main>
       <Bar />
       <S.Footer></S.Footer>

@@ -1,9 +1,10 @@
-import {ReactComponent as RepeatIcon} from '../../../img/icon/repeat.svg'
+import { ReactComponent as RepeatIcon } from '../../../img/icon/repeat.svg'
+import * as S from './repeatStyle.jsx'
 
 export const Repeat = () => {
   return (
-    <div className="player__btn-repeat _btn-icon">
+    <S.RepeatIcon>
       <RepeatIcon />
-    </div>
+    </S.RepeatIcon>
   )
 }

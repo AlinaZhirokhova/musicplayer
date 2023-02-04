@@ -1,9 +1,10 @@
 import {ReactComponent as DislikeIcon} from '../../../img/icon/dislike.svg'
+import * as S from './dislikeStyle.jsx'
 
 export const Dislike = () => {
   return (
-    <div className="track-play__dislike _btn-icon">
+    <S.DislikeTrackPlay>
       <DislikeIcon className="track-play__dislike-svg" alt="dislike" />
-    </div>
+    </S.DislikeTrackPlay>
   )
 }

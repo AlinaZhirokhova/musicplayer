@@ -1,14 +1,15 @@
 import {ReactComponent as Watch} from '../../img/icon/watch.svg'
+import * as S from './playlisttitleStyle.jsx'
 
 export const PlaylistTitle = () => {
     return (
-      <div className="content__title playlist-title">
-        <div className="playlist-title__col col01">Трек</div>
-        <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-        <div className="playlist-title__col col03">АЛЬБОМ</div>
-        <div className="playlist-title__col col04">
+      <S.PlaylistTitle>
+        <S.PlaylistTitleCol01>Трек</S.PlaylistTitleCol01>
+        <S.PlaylistTitleCol02>ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
+        <S.PlaylistTitleCol03>АЛЬБОМ</S.PlaylistTitleCol03>
+        <S.PlaylistTitleCol04>
           <Watch className="playlist-title__svg" alt="time"/>
-        </div>
-      </div>
+        </S.PlaylistTitleCol04>
+      </S.PlaylistTitle>
     )
 }

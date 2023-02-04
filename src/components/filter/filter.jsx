@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 import * as S from './filterStyle.jsx'
 
 export const Filter = () => {
@@ -38,43 +39,83 @@ export const Filter = () => {
   console.log(genreArr)
   console.log(filter)
   console.log(popupHtml)
-  
+
   useEffect(() => {
-    if (filter === 'author') {
+    if (filter.name === 'author') {
       setPopupHtml(Array.from(authorArr))
-    } else if (filter === 'genre') {
+    } else if (filter.name === 'genre') {
       setPopupHtml(Array.from(genreArr))
     }
   }, [filter])
 
   function handleClick(event) {
-    setFilter(event.target.dataset.type)
+    const selectors = document.querySelectorAll('[data-type]')
+    event.target.dataset.active = !JSON.parse(event.target.dataset.active)
+    setFilter({
+      name: event.target.dataset.type,
+      active: JSON.parse(event.target.dataset.active),
+    })
+    if (event.target.dataset.active == 'true') {
+      event.target.style.color = '#ad61ff'
+      event.target.style.borderColor = '#d9b6ff'
+    } else {
+      event.target.style.color = '#ffffff'
+      event.target.style.borderColor = '#ffffff'
+    }
+
+    selectors.forEach((item) => {
+      if (item.dataset.type !== event.target.dataset.type) {
+        item.dataset.active = false
+        item.style.color = '#ffffff'
+        item.style.borderColor = '#ffffff'
+      }
+    })
   }
 
   return (
     <S.Filter>
       <S.FilterTitle>Искать по:</S.FilterTitle>
-      <S.FilterButton onClick={handleClick} data-type="author">
+      <S.FilterButton
+        onClick={handleClick}
+        data-type="author"
+        data-active="false"
+      >
         исполнителю
-        {/* <div className="filter__button button-author _btn-text" onClick = {handleClick} data-type = 'author'>исполнителю */}
-        {filter == 'author' && <S.PopupFilter>
-          {popupHtml.map((item) => {
-            return <span key='1'>{item}</span>
-          })}
-        </S.PopupFilter>}
+        {filter.name == 'author' && filter.active == true && (
+          <S.PopupFilter>
+            {popupHtml.map((item) => {
+              return <span key={nanoid()}>{item}</span>
+            })}
+          </S.PopupFilter>
+        )}
       </S.FilterButton>
-      <S.FilterButton onClick={handleClick} data-type="year">
+      <S.FilterButton
+        onClick={handleClick}
+        data-type="year"
+        data-active="false"
+      >
         году выпуска
+        {filter.name == 'year' && filter.active == true && (
+          <S.PopupFilterYear>
+            <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более новые</label>
+            <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более старые</label>
+          </S.PopupFilterYear>
+        )}
       </S.FilterButton>
-      <S.FilterButton onClick={handleClick} data-type="genre">
+      <S.FilterButton
+        onClick={handleClick}
+        data-type="genre"
+        data-active="false"
+      >
         жанру
-        {filter == 'genre' && <S.PopupFilter>
-          {popupHtml.map((item) => {
-            return <span key='1'>{item}</span>
-          })}
-        </S.PopupFilter>}
+        {filter.name == 'genre' && filter.active == true && (
+          <S.PopupFilter>
+            {popupHtml.map((item) => {
+              return <span key={nanoid()}>{item}</span>
+            })}
+          </S.PopupFilter>
+        )}
       </S.FilterButton>
-
     </S.Filter>
   )
 }

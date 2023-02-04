@@ -1,9 +1,10 @@
-import {ReactComponent as ShuffleIcon} from '../../../img/icon/shuffle.svg'
+import { ReactComponent as ShuffleIcon } from '../../../img/icon/shuffle.svg'
+import * as S from './shuffleStyle'
 
 export const Shuffle = () => {
   return (
-    <div className="player__btn-shuffle _btn-icon">
+    <S.ShuffleIcon>
       <ShuffleIcon />
-    </div>
+    </S.ShuffleIcon>
   )
 }
