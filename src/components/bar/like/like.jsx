@@ -1,9 +1,10 @@
 import * as S from './likeStyle.jsx'
+import { Icon } from '../barStyled.jsx'
 
 export const Like = () => {
   return (
-    <S.LikeTrackPlay>
-      <S.LikeIconSvg alt="like" />
-    </S.LikeTrackPlay>
+    <Icon>
+      <S.LikeIconSvg alt="like"/>
+    </Icon>
   )
 }

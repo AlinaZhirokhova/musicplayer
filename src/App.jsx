@@ -5,12 +5,13 @@ import { PlaylistTitle } from './components/playlisttitle/playlisttitle.jsx'
 import { Playlist } from './components/playlist/playlist.jsx'
 import { Sidebar } from './components/sidebar/sidebar.jsx'
 import { Bar } from './components/bar/bar.jsx'
+import { AppRoutes } from './routes.jsx'
 import * as S from './AppStyle.jsx'
-
 
 const App = () => {
   return (
     <S.Container>
+      <AppRoutes/>
       <S.Main>
         <Navigation />
         <S.MainCenterBlock>

@@ -20,7 +20,7 @@ export const Icon = styled.div`
   }
 
   &:active svg {
-    fill: transparent;
+    fill: #696969;
     stroke: #ffffff;
     cursor: pointer;
   }
