@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   max-width: 1920px;
+  height: 100%;
   margin: 0 auto;
   position: relative;
   background-color: #181818;
@@ -32,6 +33,7 @@ export const MainCenterBlockContent = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  max-width: 1107px;
 `
 
 export const Footer = styled.footer``

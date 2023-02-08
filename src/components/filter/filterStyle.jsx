@@ -50,11 +50,11 @@ export const PopupFilter = styled.div`
   top: 48px;
   border-radius: 12px;
   padding: 34px;
-  font-size: 22px;
+  font-size: 20px;
   background-color: #313131;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   overflow-y: scroll;
 

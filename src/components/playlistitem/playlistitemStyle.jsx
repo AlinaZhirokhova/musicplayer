@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ReactComponent as NoteIcon } from '../../img/icon/note.svg'
+
 import { ReactComponent as LikeIcon } from '../../img/icon/like.svg'
 
 export const PlaylistItemContainer = styled.div`
@@ -95,15 +95,4 @@ export const LikeIconSvg = styled(LikeIcon)`
   margin-right: 17px;
   fill: transparent;
   stroke: #696969;
-`
-
-export const NoteIconSvg = styled(NoteIcon)`
-  width: 51px;
-  height: 51px;
-  padding: 16px;
-  background: #313131;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 17px;
 `

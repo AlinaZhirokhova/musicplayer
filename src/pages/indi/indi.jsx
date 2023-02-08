@@ -1,27 +1,23 @@
 import { Navigation } from '../../components/navigation/navigation.jsx'
 import { Search } from '../../components/search/search.jsx'
-import { Filter } from '../../components/filter/filter.jsx'
-import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
-import { Playlist } from '../../components/playlist/playlist.jsx'
-import { Sidebar } from '../../components/sidebar/sidebar.jsx'
 import { Bar } from '../../components/bar/bar.jsx'
+import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
+import { IndiPlaylist } from './indiStyle.jsx'
 import * as S from '../../AppStyle.jsx'
 
-export const Main = () => {
+export const Indi = () => {
   return (
     <S.Container>
       <S.Main>
         <Navigation />
         <S.MainCenterBlock>
           <Search />
-          <S.MainCenterBlockTitle>Треки</S.MainCenterBlockTitle>
-          <Filter />
+          <S.MainCenterBlockTitle>Инди заряд</S.MainCenterBlockTitle>
           <S.MainCenterBlockContent>
             <PlaylistTitle />
-            <Playlist />
+            <IndiPlaylist />
           </S.MainCenterBlockContent>
         </S.MainCenterBlock>
-        <Sidebar />
       </S.Main>
       <Bar />
       <S.Footer></S.Footer>

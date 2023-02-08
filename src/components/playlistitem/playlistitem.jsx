@@ -1,4 +1,5 @@
 import * as S from './playlistitemStyle.jsx'
+import { ReactComponent as NoteIcon } from '../../img/icon/note.svg'
 
 export const PlaylistItem = (props) => {
   const getTime = (time) => {
@@ -15,7 +16,7 @@ export const PlaylistItem = (props) => {
         <S.Track>
           <S.TrackTitle>
             <S.TrackTitleImage>
-              <S.NoteIconSvg alt="music"/>
+              <NoteIcon alt="music"/>
             </S.TrackTitleImage>
             <S.TrackTitleText>
               <S.TrackTitleLink href="#">
