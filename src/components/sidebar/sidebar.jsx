@@ -22,17 +22,17 @@ export const Sidebar = () => {
         ) : (
           <S.ListSidebar>
             <S.ItemSidebar>
-              <S.LinkSidebar href="#">
+              <S.LinkSidebar to="/dayplaylist">
                 <S.ImgSidebar src={img1} alt="day's playlist" />
               </S.LinkSidebar>
             </S.ItemSidebar>
             <S.ItemSidebar>
-              <S.LinkSidebar href="#">
+              <S.LinkSidebar to="/dancetracks">
                 <S.ImgSidebar src={img2} alt="day's playlist" />
               </S.LinkSidebar>
             </S.ItemSidebar>
             <S.ItemSidebar>
-              <S.LinkSidebar href="#">
+              <S.LinkSidebar to="/indi">
                 <S.ImgSidebar src={img3} alt="day's playlist" />
               </S.LinkSidebar>
             </S.ItemSidebar>
