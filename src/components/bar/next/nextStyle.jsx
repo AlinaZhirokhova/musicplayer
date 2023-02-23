@@ -9,9 +9,16 @@ export const NextPlayer = styled.div`
   fill: #a53939;
 `
 
-export const NextIconSvg = styled(NextIcon)`
+export const NextIconSvgDark = styled(NextIcon)`
   width: 15px;
   height: 14px;
-  fill: inherit;
-  stroke: #d9d9d9;
+  stroke: #D9D9D9;
+  fill: #D9D9D9;
+`
+
+export const NextIconSvgLight = styled(NextIcon)`
+  width: 15px;
+  height: 14px;
+  stroke: #B1B1B1;
+  fill: #B1B1B1;
 `

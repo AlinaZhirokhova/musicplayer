@@ -6,10 +6,19 @@ import { Playlist } from '../../components/playlist/playlist.jsx'
 import { Sidebar } from '../../components/sidebar/sidebar.jsx'
 import { Bar } from '../../components/bar/bar.jsx'
 import * as S from '../../AppStyle.jsx'
+import { useContext } from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
 
 export const Main = () => {
+  const {currentTheme} = useContext(ThemeContext)
+  let styles = {
+    backgroundColor: currentTheme ? '#ffffff' : '#181818',
+    color: currentTheme ? '#000000' : '#ffffff'
+  }
+
+
   return (
-    <S.Container>
+    <S.Container style={styles}>
       <S.Main>
         <Navigation />
         <S.MainCenterBlock>

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { NavLink } from "react-router-dom"
+import { ReactComponent as ThemeIconDark } from '../../img/icon/darkTheme.svg'
+import { ReactComponent as ThemeIconLight } from '../../img/icon/lightTheme.svg'
 
 export const MainNavigation = styled.nav`
   width: 244px;
@@ -63,4 +65,20 @@ export const MenuLinkNavigation = styled(NavLink)`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+`
+
+export const ThemeIconSvgDark = styled(ThemeIconDark)`
+  width: 39px;
+  height: 39px;
+  stroke: #ffffff;
+  fill: transparent;
+  cursor: pointer;
+`
+
+export const ThemeIconSvgLight = styled(ThemeIconLight)`
+  width: 39px;
+  height: 39px;
+  stroke: #000000;
+  fill: transparent;
+  cursor: pointer;
 `

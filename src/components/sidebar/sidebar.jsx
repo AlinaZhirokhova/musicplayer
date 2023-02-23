@@ -4,16 +4,24 @@ import img3 from '../../img/playlist03.png'
 import * as S from './sidebarStyle.jsx'
 import { SkeletonSidebar } from '../skeletonSidebar/skeletonSidebar'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
 
 export const Sidebar = () => {
   const [isLoading, setIsLoading] = useState(true)
   setTimeout(() => {
     setIsLoading(false)
   }, 2000)
+
+  const { currentTheme } = useContext(ThemeContext)
+  let styleName = {
+    color: currentTheme ? '#000000' : '#ffffff'
+  }
+
   return (
     <S.MainSidebar>
       <S.Personal>
-        <S.PersonalName>Sergey.Ivanov</S.PersonalName>
+        <S.PersonalName style={styleName}>Sergey.Ivanov</S.PersonalName>
         <S.Avatar></S.Avatar>
       </S.Personal>
       <S.BlockSidebar>

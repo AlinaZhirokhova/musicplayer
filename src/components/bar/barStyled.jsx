@@ -12,18 +12,6 @@ export const Icon = styled.div`
   padding: 5px;
   display: flex;
   align-items: center;
-
-  &:hover svg {
-    fill: transparent;
-    stroke: #acacac;
-    cursor: pointer;
-  }
-
-  &:active svg {
-    fill: #696969;
-    stroke: #ffffff;
-    cursor: pointer;
-  }
 `
 
 export const ContentBar = styled.div`

@@ -8,7 +8,16 @@ export const PrevPlayer = styled.div`
   margin-right: 23px;
 `
 
-export const PrevIconSvg = styled(PrevIcon)`
+export const PrevIconSvgDark = styled(PrevIcon)`
   width: 15px;
   height: 14px;
+  stroke: #D9D9D9;
+  fill: #D9D9D9;
+`
+
+export const PrevIconSvgLight = styled(PrevIcon)`
+  width: 15px;
+  height: 14px;
+  stroke: #B1B1B1;
+  fill: #B1B1B1;
 `

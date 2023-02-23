@@ -15,29 +15,88 @@ export const FilterTitle = styled.div`
   margin-right: 15px;
 `
 
-export const FilterButton = styled.div`
+// export const FilterButton = styled.button`
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 24px;
+//   border-radius: 60px;
+//   padding: 6px 20px;
+//   position: relative;
+//   background-color: transparent;
+
+
+//   &:not(:last-child) {
+//     margin-right: 10px;
+//   }
+
+//   &:hover {
+//     border: 1px solid #d9b6ff;
+//     color: #d9b6ff;
+//     cursor: pointer;
+//   }
+
+//   &:active {
+//     border: 1px solid #ad61ff;
+//     color: #ad61ff;
+//     cursor: pointer;
+//   }
+// `
+
+export const FilterButtonDark = styled.button`
   font-style: normal;
   font-weight: 400;
+  width: 144px;
+  height: 39px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #ffffff;
   border-radius: 60px;
-  padding: 6px 20px;
   position: relative;
+  background: transparent;
+  color: #ffffff;
 
   &:not(:last-child) {
     margin-right: 10px;
   }
 
   &:hover {
-    border-color: #d9b6ff;
+    border: 1px solid #d9b6ff;
     color: #d9b6ff;
     cursor: pointer;
   }
 
   &:active {
-    border-color: #ad61ff;
+    border: 1px solid #ad61ff;
     color: #ad61ff;
+    cursor: pointer;
+  }
+`
+
+export const FilterButtonLight = styled.button`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid #000000;
+  border-radius: 60px;
+  padding: 6px 20px;
+  position: relative;
+  background: transparent;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    border: 1px solid #580EA2;
+    color: #580EA2;
+    cursor: pointer;
+  }
+
+  &:active {
+    border: 1px solid #AD61FF;
+    color: #AD61FF;
     cursor: pointer;
   }
 `
@@ -59,7 +118,7 @@ export const PopupFilter = styled.div`
   overflow-y: scroll;
 
   & span {
-    color: white;
+    color: #ffffff;
   }
 
   & span:hover {

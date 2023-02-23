@@ -6,9 +6,35 @@ export const DislikeTrackPlay = styled(Icon)`
   margin-left: 30px;
 `
 
-export const DislikeIconSvg = styled(DislikeIcon)`
+export const DislikeIconSvgDark = styled(DislikeIcon)`
   width: 14.34px;
   height: 13px;
   fill: transparent;
   stroke: #696969;
+
+  &:hover {
+    stroke: #ACACAC;
+  }
+
+  &:active {
+    stroke: #ffffff;
+    fill: #696969;
+  }
+`
+
+export const DislikeIconSvgLight = styled(DislikeIcon)`
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #B1B1B1;
+
+  &:hover {
+    stroke: #707070;
+    fill: transparent;
+  }
+
+  &:active {
+    stroke: #000000;
+    fill: #AD61FF;
+  }
 `

@@ -1,14 +1,18 @@
 import * as S from './searchStyled'
+import { useContext } from 'react'
+import { ThemeContext } from '../../context/ThemeContext'
+import { SearchText } from '../search/placeholder/placeholder'
 
 export const Search = () => {
-    return (
-      <S.SearchContainer>
-        <S.SearchIconSvg />
-        <S.SearchText
-          type="search"
-          placeholder="Поиск"
-          name="search"
-        />
-      </S.SearchContainer>
-    )
+  const { currentTheme } = useContext(ThemeContext)
+  let styleImg = {
+    stroke: currentTheme ? '#000000' : '#ffffff'
+  }
+
+  return (
+    <S.SearchContainer>
+      <S.SearchIconSvg style={styleImg}/>
+      <SearchText/>
+    </S.SearchContainer>
+  )
 }

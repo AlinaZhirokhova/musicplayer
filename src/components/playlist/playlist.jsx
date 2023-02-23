@@ -18,7 +18,6 @@ export const Playlist = () => {
       setTracks(response)
     }
     getTracks()
-    console.log(tracks);
   }, [])
   return (
     <S.PlaylistContainer>
