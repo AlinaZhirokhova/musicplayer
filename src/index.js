@@ -7,23 +7,17 @@ import './css/style.scss'
 import { AuthContextProvider } from './context/AuthContext'
 import { ThemeContextProvider } from './context/ThemeContext'
 import { PlayingContextProvider } from './context/PlayingContext'
-import { Provider } from 'react-redux'
-import { store } from './store/store'
 
 const wrapper = ReactDOM.createRoot(document.querySelector('.wrapper'))
 wrapper.render(
-
-    <Provider store={store}>
-      <ThemeContextProvider>
-        <AuthContextProvider>
-          <PlayingContextProvider>
-            <BrowserRouter>
-            <GlobalStyle />
-            <App />
-          </BrowserRouter>
-          </PlayingContextProvider>          
-        </AuthContextProvider>
-      </ThemeContextProvider>
-    </Provider>
-
+  <ThemeContextProvider>
+    <AuthContextProvider>
+      <PlayingContextProvider>
+        <BrowserRouter>
+          <GlobalStyle />
+          <App />
+        </BrowserRouter>
+      </PlayingContextProvider>
+    </AuthContextProvider>
+  </ThemeContextProvider>
 )

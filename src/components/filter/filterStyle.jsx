@@ -43,7 +43,15 @@ export const FilterTitle = styled.div`
 //   }
 // `
 
-export const FilterButtonDark = styled.button`
+export const FilterButtonDark = styled.button.attrs((props) => ({
+  className: props.className
+}))`
+  &.active{
+    border: 1px solid #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+  }
+
   font-style: normal;
   font-weight: 400;
   width: 144px;
@@ -66,21 +74,25 @@ export const FilterButtonDark = styled.button`
     cursor: pointer;
   }
 
-  &:active {
-    border: 1px solid #ad61ff;
-    color: #ad61ff;
-    cursor: pointer;
-  }
 `
 
-export const FilterButtonLight = styled.button`
+export const FilterButtonLight = styled.button.attrs((props) => ({
+  className: props.className
+}))`
+  &.active {
+  border: 1px solid #AD61FF;
+  color: #AD61FF;
+  cursor: pointer;
+  }
+
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  width: 144px;
+  height: 39px;
   line-height: 24px;
   border: 1px solid #000000;
   border-radius: 60px;
-  padding: 6px 20px;
   position: relative;
   background: transparent;
 
@@ -93,15 +105,35 @@ export const FilterButtonLight = styled.button`
     color: #580EA2;
     cursor: pointer;
   }
+`
 
-  &:active {
-    border: 1px solid #AD61FF;
-    color: #AD61FF;
-    cursor: pointer;
+export const PopupFilterLight = styled.div`
+  position: absolute;
+  width: 248px;
+  height: 305px;
+  left: 0;
+  top: 48px;
+  border-radius: 12px;
+  padding: 34px;
+  font-size: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+  overflow-y: scroll;
+
+  & span {
+    color: #000000;
+  }
+
+  & span:hover {
+    color: #b672ff;
+    text-decoration: underline;
   }
 `
 
-export const PopupFilter = styled.div`
+export const PopupFilterDark = styled.div`
   position: absolute;
   width: 248px;
   height: 305px;
@@ -113,7 +145,7 @@ export const PopupFilter = styled.div`
   background-color: #313131;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  text-align: left;
   gap: 10px;
   overflow-y: scroll;
 
@@ -127,7 +159,7 @@ export const PopupFilter = styled.div`
   }
 `
 
-export const PopupFilterYear = styled.div`
+export const PopupFilterYearDark = styled.div`
   position: absolute;
   width: 403px;
   height: 92px;
@@ -141,7 +173,25 @@ export const PopupFilterYear = styled.div`
   flex-direction: now;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: #ffffff;
+  cursor: default;
+`
+
+export const PopupFilterYearLight = styled.div`
+  position: absolute;
+  width: 403px;
+  height: 92px;
+  left: 0;
+  top: 48px;
+  border-radius: 12px;
+  padding: 34px;
+  font-size: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: now;
+  align-items: center;
+  gap: 10px;
+  color: #000000;
   cursor: default;
 `
 

@@ -12,7 +12,6 @@ export const Filter = () => {
   const [filter, setFilter] = useState('')
   const [popupHtml, setPopupHtml] = useState([])
   const {currentTheme} = useContext(ThemeContext)
-  // const [currentArr, setCurrentArr] = useState([])
 
   useEffect(() => {
     const getTracks = async () => {
@@ -37,12 +36,6 @@ export const Filter = () => {
     getTracks()
   }, [])
 
-  console.log(tracks)
-  // console.log(authorArr)
-  // console.log(genreArr)
-  // console.log(filter)
-  // console.log(popupHtml)
-
   useEffect(() => {
     if (filter.name === 'author') {
       setPopupHtml(Array.from(authorArr))
@@ -59,33 +52,13 @@ export const Filter = () => {
       active: JSON.parse(event.target.dataset.active),
     })
 
-    if (!currentTheme) {
-      event.target.classList.toggle('active-black')
-    }
-
-    // if (event.target.dataset.active === 'true' && !currentTheme) {
-    //   event.target.style.color = '#ad61ff'
-    //   event.target.style.borderColor = '#ad61ff'
-    //   console.log("первый иф" + currentTheme + event.target.dataset.active)
-    // } else if (event.target.dataset.active === 'false' && !currentTheme) {
-    //   event.target.style.color = '#ffffff'
-    //   event.target.style.borderColor = '#ffffff'
-    //   console.log("второй иф" + currentTheme + event.target.dataset.active)
-    // } 
-    // else {
-    //   event.target.style.color = '#ffffff'
-    //   event.target.style.borderColor = '#ffffff'
-    // }
-
     selectors.forEach((item) => {
-      if (item.dataset.type !== event.target.dataset.type && currentTheme) {
+      if (item.dataset.type !== event.target.dataset.type) {
         item.dataset.active = false
-        item.style.color = '#000000'
-        item.style.borderColor = '#000000'
-      } else if (item.dataset.type === event.target.dataset.type && currentTheme) {
+        item.classList.remove('active')
+      } else if (item.dataset.type === event.target.dataset.type) {
         item.dataset.active = true
-        item.style.color = '#000000'
-        item.style.borderColor = '#000000'
+        item.classList.toggle('active')
       }
     })
   }
@@ -101,24 +74,25 @@ export const Filter = () => {
       >
         исполнителю
         {filter.name == 'author' && filter.active == true && (
-          <S.PopupFilter>
+          <S.PopupFilterLight>
             {popupHtml.map((item) => {
               return <span key={nanoid()}>{item}</span>
             })}
-          </S.PopupFilter>
+          </S.PopupFilterLight>
         )}
       </S.FilterButtonLight>
       <S.FilterButtonLight
         onClick={handleClick}
         data-type="year"
         data-active="false"
+        data-delete={tracks}
       >
         году выпуска
         {filter.name == 'year' && filter.active == true && (
-          <S.PopupFilterYear>
+          <S.PopupFilterYearLight>
             <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более новые</label>
             <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более старые</label>
-          </S.PopupFilterYear>
+          </S.PopupFilterYearLight>
         )}
       </S.FilterButtonLight>
       <S.FilterButtonLight
@@ -128,11 +102,11 @@ export const Filter = () => {
       >
         жанру
         {filter.name == 'genre' && filter.active == true && (
-          <S.PopupFilter>
+          <S.PopupFilterLight>
             {popupHtml.map((item) => {
               return <span key={nanoid()}>{item}</span>
             })}
-          </S.PopupFilter>
+          </S.PopupFilterLight>
         )}
       </S.FilterButtonLight>
     </S.Filter>
@@ -149,11 +123,11 @@ export const Filter = () => {
         >
           исполнителю
           {filter.name == 'author' && filter.active == true && (
-            <S.PopupFilter>
+            <S.PopupFilterDark>
               {popupHtml.map((item) => {
                 return <span key={nanoid()}>{item}</span>
               })}
-            </S.PopupFilter>
+            </S.PopupFilterDark>
           )}
         </S.FilterButtonDark>
         <S.FilterButtonDark
@@ -163,10 +137,10 @@ export const Filter = () => {
         >
           году выпуска
           {filter.name == 'year' && filter.active == true && (
-            <S.PopupFilterYear>
+            <S.PopupFilterYearDark>
               <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более новые</label>
               <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более старые</label>
-            </S.PopupFilterYear>
+            </S.PopupFilterYearDark>
           )}
         </S.FilterButtonDark>
         <S.FilterButtonDark
@@ -176,70 +150,17 @@ export const Filter = () => {
         >
           жанру
           {filter.name == 'genre' && filter.active == true && (
-            <S.PopupFilter>
+            <S.PopupFilterDark>
               {popupHtml.map((item) => {
                 return <span key={nanoid()}>{item}</span>
               })}
-            </S.PopupFilter>
+            </S.PopupFilterDark>
           )}
         </S.FilterButtonDark>
       </S.Filter>
     )
  }
 
-   // function getTheme (Item) {
-  //   return (
-  //     <S.Filter>
-  //       <S.FilterTitle>Искать по:</S.FilterTitle>
-  //       <Item
-  //         onClick={handleClick}
-  //         data-type="author"
-  //         data-active="false"
-  //       >
-  //         исполнителю
-  //         {filter.name == 'author' && filter.active == true && (
-  //           <S.PopupFilter>
-  //             {popupHtml.map((item) => {
-  //               return <span key={nanoid()}>{item}</span>
-  //             })}
-  //           </S.PopupFilter>
-  //         )}
-  //       </Item>
-  //       <Item
-  //         onClick={handleClick}
-  //         data-type="year"
-  //         data-active="false"
-  //       >
-  //         году выпуска
-  //         {filter.name == 'year' && filter.active == true && (
-  //           <S.PopupFilterYear>
-  //             <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более новые</label>
-  //             <S.PopupFilterYearNew type="radio" name="year"/><label htmlFor="radio">Более старые</label>
-  //           </S.PopupFilterYear>
-  //         )}
-  //       </Item>
-  //       <Item
-  //         onClick={handleClick}
-  //         data-type="genre"
-  //         data-active="false"
-  //       >
-  //         жанру
-  //         {filter.name == 'genre' && filter.active == true && (
-  //           <S.PopupFilter>
-  //             {popupHtml.map((item) => {
-  //               return <span key={nanoid()}>{item}</span>
-  //             })}
-  //           </S.PopupFilter>
-  //         )}
-  //       </Item>
-  //     </S.Filter>
-  //   )
-  // }
-  // if (currentTheme) {
-  //   getTheme (S.FilterButtonLight)
-  // } else {
-  //   getTheme (S.FilterButtonDark)
-  // }
 
 
 }
