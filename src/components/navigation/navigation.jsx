@@ -6,10 +6,13 @@ import * as S from './navigationStyle.jsx'
 import { Theme } from './theme/theme'
 import { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
+import { useDispatch } from 'react-redux'
+import { deleteToken } from '../../redux/Slices/userSlice'
 
 export const Navigation = () => {
   const [visible, setVisible] = useState(true)
   const toggleVisibility = () => setVisible(!visible)
+  const dispatch = useDispatch()
 
   const { currentTheme } = useContext(ThemeContext)
   let styleMain = {
@@ -20,6 +23,11 @@ export const Navigation = () => {
   }
   let styleBurgerLine = {
     backgroundColor: currentTheme ? '#000000' : '#d3d3d3'
+  }
+
+  function handleExit() {
+    localStorage.removeItem('token')
+    dispatch(deleteToken())
   }
  
 
@@ -48,7 +56,7 @@ export const Navigation = () => {
               </S.MenuLinkNavigation>
             </S.MenuItemNavigation>
             <S.MenuItemNavigation>
-              <S.MenuLinkNavigation style={styleLink} to="/login">Войти</S.MenuLinkNavigation>
+              <S.MenuLinkNavigation onClick={handleExit} style={styleLink} to="/login">Выйти</S.MenuLinkNavigation>
             </S.MenuItemNavigation>
             <S.MenuItemNavigation>
               <Theme />

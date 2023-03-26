@@ -6,6 +6,7 @@ export const PlaylistItemContainer = styled.div`
   width: 100%;
   display: block;
   margin-bottom: 12px;
+  cursor: pointer
 `
 
 export const Track = styled.div`
@@ -94,4 +95,12 @@ export const LikeIconSvg = styled(LikeIcon)`
   margin-right: 17px;
   fill: transparent;
   stroke: #696969;
+`
+
+export const UnlikeIconSvg = styled(LikeIcon)`
+  width: 14px;
+  height: 12px;
+  margin-right: 17px;
+  fill: red;
+  stroke: red;
 `

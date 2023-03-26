@@ -8,9 +8,17 @@ import { Bar } from '../../components/bar/bar.jsx'
 import * as S from '../../AppStyle.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
+import { useSelector } from 'react-redux'
 
 export const Main = () => {
+  const { trackId } = useSelector((state) => state.id)
+  
+  // const { author: authorRedux } = useSelector((state) => state.filter)
+  
+  
   const {currentTheme} = useContext(ThemeContext)
+
+
   let styles = {
     backgroundColor: currentTheme ? '#ffffff' : '#181818',
     color: currentTheme ? '#000000' : '#ffffff'
@@ -24,7 +32,7 @@ export const Main = () => {
         <S.MainCenterBlock>
           <Search />
           <S.MainCenterBlockTitle>Треки</S.MainCenterBlockTitle>
-          <Filter />
+          <Filter/>
           <S.MainCenterBlockContent>
             <PlaylistTitle />
             <Playlist />
@@ -32,7 +40,7 @@ export const Main = () => {
         </S.MainCenterBlock>
         <Sidebar />
       </S.Main>
-      <Bar />
+      {Object.keys(trackId).length ? <Bar /> : ''}
       <S.Footer></S.Footer>
     </S.Container>
   )

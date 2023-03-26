@@ -48,7 +48,7 @@ export const FormRegister = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
 `
 
 export const ButtonRegister = styled.button`

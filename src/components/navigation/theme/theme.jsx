@@ -6,7 +6,6 @@ export const Theme = () => {
     const {currentTheme, setCurrentTheme} = useContext(ThemeContext)
     function changeTheme () {
         setCurrentTheme(theme => !theme)
-        console.log(currentTheme)
     }
 
     if (currentTheme) {

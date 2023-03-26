@@ -1,9 +1,11 @@
 import * as S from './containStyle.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
+import { useSelector } from 'react-redux'
 
 export const Contain = () => {
   const { currentTheme } = useContext(ThemeContext)
+  const { trackId } = useSelector((state) => state.id)
   let styles = {
     color: currentTheme ? '#000000' : '#ffffff',
   }
@@ -19,11 +21,11 @@ export const Contain = () => {
       </S.ImageTrackPlay>
       <S.AuthorTrackPlay>
         <S.AuthorLinkTrackPlay style={styles} href="http://">
-          Ты та...
+          {trackId?.name}
         </S.AuthorLinkTrackPlay>
       </S.AuthorTrackPlay>
       <S.AlbumTrackPlay>
-        <S.AlbumLinkTrackPlay style={styles} href="http://">Баста</S.AlbumLinkTrackPlay>
+        <S.AlbumLinkTrackPlay style={styles} href="http://">{trackId?.author}</S.AlbumLinkTrackPlay>
       </S.AlbumTrackPlay>
     </S.ContainTrackPlay>
   )

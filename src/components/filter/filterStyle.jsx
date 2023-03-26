@@ -25,7 +25,6 @@ export const FilterTitle = styled.div`
 //   position: relative;
 //   background-color: transparent;
 
-
 //   &:not(:last-child) {
 //     margin-right: 10px;
 //   }
@@ -44,9 +43,9 @@ export const FilterTitle = styled.div`
 // `
 
 export const FilterButtonDark = styled.button.attrs((props) => ({
-  className: props.className
+  className: props.className,
 }))`
-  &.active{
+  &.active {
     border: 1px solid #ad61ff;
     color: #ad61ff;
     cursor: pointer;
@@ -73,16 +72,15 @@ export const FilterButtonDark = styled.button.attrs((props) => ({
     color: #d9b6ff;
     cursor: pointer;
   }
-
 `
 
 export const FilterButtonLight = styled.button.attrs((props) => ({
-  className: props.className
+  className: props.className,
 }))`
   &.active {
-  border: 1px solid #AD61FF;
-  color: #AD61FF;
-  cursor: pointer;
+    border: 1px solid #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
   }
 
   font-style: normal;
@@ -101,8 +99,8 @@ export const FilterButtonLight = styled.button.attrs((props) => ({
   }
 
   &:hover {
-    border: 1px solid #580EA2;
-    color: #580EA2;
+    border: 1px solid #580ea2;
+    color: #580ea2;
     cursor: pointer;
   }
 `
@@ -116,7 +114,7 @@ export const PopupFilterLight = styled.div`
   border-radius: 12px;
   padding: 34px;
   font-size: 20px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -125,11 +123,6 @@ export const PopupFilterLight = styled.div`
 
   & span {
     color: #000000;
-  }
-
-  & span:hover {
-    color: #b672ff;
-    text-decoration: underline;
   }
 `
 
@@ -151,11 +144,6 @@ export const PopupFilterDark = styled.div`
 
   & span {
     color: #ffffff;
-  }
-
-  & span:hover {
-    color: #b672ff;
-    text-decoration: underline;
   }
 `
 
@@ -186,7 +174,7 @@ export const PopupFilterYearLight = styled.div`
   border-radius: 12px;
   padding: 34px;
   font-size: 20px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   display: flex;
   flex-direction: now;
   align-items: center;
@@ -199,3 +187,13 @@ export const PopupFilterYearNew = styled.input`
   accent-color: white;
   cursor: pointer;
 `
+
+export const PopupFilterSpan = styled.span.attrs((props) => ({
+  className: props.className,
+}))`
+  &.active {
+    color: #b672ff;
+    text-decoration: underline;
+  }
+`
+

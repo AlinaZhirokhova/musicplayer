@@ -22,7 +22,7 @@ export const ImageTrackPlay = styled.div`
 
 export const AuthorTrackPlay = styled.div`
   grid-area: author;
-  min-width: 49px;
+  width: 150px;
 `
 
 export const AuthorLinkTrackPlay = styled.a`
@@ -32,11 +32,12 @@ export const AuthorLinkTrackPlay = styled.a`
   line-height: 24px;
   color: #ffffff;
   white-space: nowrap;
+  width: 100px;
 `
 
 export const AlbumTrackPlay = styled.div`
   grid-area: album;
-  min-width: 49px;
+  width: 150px;
 `
 
 export const AlbumLinkTrackPlay = styled.a`

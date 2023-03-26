@@ -1,8 +1,5 @@
 import * as S from './barStyled'
-import { useState, useEffect, useContext } from 'react'
-import useSound from 'use-sound'
-import audio from '../../audio.mp3'
-import { Volume } from './volume/volume'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { Contain } from './contain/contain'
 import { Like } from './like/like'
 import { Dislike } from './dislike/dislike'
@@ -12,48 +9,59 @@ import { Prev } from './prev/prev'
 import { Next } from './next/next'
 import { Repeat } from './repeat/repeat'
 import { Shuffle } from './shuffle/shuffle'
+import { useSelector } from 'react-redux'
 
 export const Bar = () => {
   const [isLoading, setIsLoading] = useState(true)
+  const { currentTheme } = useContext(ThemeContext)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const { trackId } = useSelector((state) => state.id)
+  const [audio, setAudio] = useState(trackId.track_file)
+  const [volume, setVolume] = useState(50)
+  const audioRef = useRef(new Audio (trackId))
+  const progressRef = useRef()
+
+  useEffect(() => {
+    audioRef.current.ontimeupdate = () => {
+      const progress = (audioRef.current.currentTime / audioRef.current.duration) * 1000
+      progressRef.current.value = progress
+    }
+  }, [audioRef, progressRef])
+
+  const progressChange = () => {
+    audioRef.current.currentTime = progressRef.current.value / 1000 * audioRef.current.duration
+  }
+
+  useEffect(() => {
+    console.log(trackId.track_file)
+    setAudio(trackId.track_file)
+  }, [trackId])
+
   setTimeout(() => {
     setIsLoading(false)
   }, 2000)
 
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [currTime, setCurrTime] = useState({
-    min: '',
-    sec: '',
-  })
-  currTime
-  const [seconds, setSeconds] = useState('')
-  const [play, { pause, duration, sound }] = useSound(audio)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (sound) {
-        setSeconds(sound.seek([]))
-        const min = Math.floor(sound.seek([]) / 60)
-        const sec = Math.floor(sound.seek([]) % 60)
-        setCurrTime({
-          min,
-          sec,
-        })
-      }
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [sound])
-
   const start = () => {
-    play()
+    audioRef.current.play()
     setIsPlaying(true)
   }
 
   const stop = () => {
-    pause()
+    audioRef.current.pause()
     setIsPlaying(false)
   }
 
-  const { currentTheme } = useContext(ThemeContext)
+  useEffect(() => {
+    start()
+  }, [])
+
+  const togglePlay = isPlaying ? stop : start
+
+  useEffect(() => {
+    if (audioRef) {
+      audioRef.current.volume = volume / 100
+    }
+  }, [volume, audioRef])
 
   let styleBar = {
     background: currentTheme ? '#ffffff' : 'rgba(28, 28, 28, 0.5)',
@@ -67,32 +75,49 @@ export const Bar = () => {
   let styleProgress = {
     backgroundColor: currentTheme ? '#D9D9D9' : '#2E2E2E',
   }
-  
+
+  let styleImg = {
+    stroke: currentTheme ? '#fffffff' : '#B1B1B1',
+  }  
+
 
   return (
     <S.BarContainer style={styleBar}>
       <S.ContentBar>
+        <S.BarAudio
+          min={0}
+          max={100}
+          data={audio}
+          key={trackId.id}
+          controls
+          ref={audioRef}
+        >
+          <source 
+          src={audio} 
+          type="audio/mpeg" 
+          />
+        </S.BarAudio>
         <S.ProgressBar
           style={styleProgress}
           type="range"
-          min="0"
-          max={duration / 1000}
-          default="0"
-          value={seconds}
-          curr={currTime.min}
-          onChange={(e) => {
-            sound.seek([e.target.value])
-          }}
+          ref={progressRef}
+          defaultValue={0}
+          onChange={progressChange}
+          max={1000}
+          // min="0"
+          // max={duration / 1000}  
+          // default="0"
+          // value={seconds}
+          // curr={currTime.min}
+          // onChange={(e) => {
+          //   sound.seek([e.target.value])
+          // }}
         ></S.ProgressBar>
         <S.PlayerBlockBar>
           <S.PlayerPlayerBar>
             <S.ControlsPlayer>
               <Prev />
-              <S.Play
-                onClick={() => {
-                  isPlaying ? stop() : start()
-                }}
-              >
+              <S.Play onClick={togglePlay}>
                 {isPlaying ? (
                   <S.StopIconSvg style={styles} alt="stop" />
                 ) : (
@@ -111,7 +136,41 @@ export const Bar = () => {
               </S.LikeDisTrackPlay>
             </S.PlayerTrackPlay>
           </S.PlayerPlayerBar>
-          <Volume />
+          {currentTheme ? (
+            <S.BlockVolume>
+              <S.ContentVolume>
+                <S.ImageVolume>
+                  <S.VolumeIconSvg style={styleImg} alt="volume" />
+                </S.ImageVolume>
+                <S.ProgressVolume>
+                  <S.ProgressLineVolumeLight
+                    onChange={(e) => setVolume(e.target.value)}
+                    value={volume}
+                    min={0}
+                    max={100}
+                    type="range"
+                  />
+                </S.ProgressVolume>
+              </S.ContentVolume>
+            </S.BlockVolume>
+          ) : (
+            <S.BlockVolume>
+              <S.ContentVolume>
+                <S.ImageVolume>
+                  <S.VolumeIconSvg style={styleImg} alt="volume" />
+                </S.ImageVolume>
+                <S.ProgressVolume>
+                  <S.ProgressLineVolumeDark
+                    onChange={(e) => setVolume(e.target.value)}
+                    value={volume}
+                    min={0}
+                    max={100}
+                    type="range"
+                  />
+                </S.ProgressVolume>
+              </S.ContentVolume>
+            </S.BlockVolume>
+          )}
         </S.PlayerBlockBar>
       </S.ContentBar>
     </S.BarContainer>
