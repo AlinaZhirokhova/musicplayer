@@ -15,25 +15,32 @@ export const Bar = () => {
   const [isLoading, setIsLoading] = useState(true)
   const { currentTheme } = useContext(ThemeContext)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isRepeat, setIsRepeat] = useState(false)
   const { trackId } = useSelector((state) => state.id)
-  const [audio, setAudio] = useState(trackId.track_file)
   const [volume, setVolume] = useState(50)
-  const audioRef = useRef(new Audio (trackId))
   const progressRef = useRef()
+  const [audio, setAudio] = useState(null)
+  const audioRef = useRef(null)
+
+  const toggleRepeat = () => setIsRepeat(!isRepeat)
 
   useEffect(() => {
+    audioRef.current?.pause()
+    setAudio(trackId.track_file)
+    audioRef.current = new Audio(trackId.track_file)
+  
     audioRef.current.ontimeupdate = () => {
-      const progress = (audioRef.current.currentTime / audioRef.current.duration) * 1000
+      const progress =
+        (audioRef.current.currentTime / audioRef.current.duration) * 1000
       progressRef.current.value = progress
     }
-  }, [audioRef, progressRef])
+  }, [trackId])
 
   const progressChange = () => {
     audioRef.current.currentTime = progressRef.current.value / 1000 * audioRef.current.duration
   }
 
   useEffect(() => {
-    console.log(trackId.track_file)
     setAudio(trackId.track_file)
   }, [trackId])
 
@@ -53,7 +60,7 @@ export const Bar = () => {
 
   useEffect(() => {
     start()
-  }, [])
+  }, [audio])
 
   const togglePlay = isPlaying ? stop : start
 
@@ -80,42 +87,23 @@ export const Bar = () => {
     stroke: currentTheme ? '#fffffff' : '#B1B1B1',
   }  
 
-
   return (
     <S.BarContainer style={styleBar}>
       <S.ContentBar>
-        <S.BarAudio
-          min={0}
-          max={100}
-          data={audio}
-          key={trackId.id}
-          controls
-          ref={audioRef}
-        >
-          <source 
-          src={audio} 
-          type="audio/mpeg" 
-          />
-        </S.BarAudio>
         <S.ProgressBar
+        key={trackId.track_file}
           style={styleProgress}
           type="range"
           ref={progressRef}
           defaultValue={0}
           onChange={progressChange}
           max={1000}
-          // min="0"
-          // max={duration / 1000}  
-          // default="0"
-          // value={seconds}
-          // curr={currTime.min}
-          // onChange={(e) => {
-          //   sound.seek([e.target.value])
-          // }}
         ></S.ProgressBar>
         <S.PlayerBlockBar>
           <S.PlayerPlayerBar>
-            <S.ControlsPlayer>
+            <S.ControlsPlayer
+            onRepeatClick={toggleRepeat}
+            isRepeat={isRepeat}>
               <Prev />
               <S.Play onClick={togglePlay}>
                 {isPlaying ? (

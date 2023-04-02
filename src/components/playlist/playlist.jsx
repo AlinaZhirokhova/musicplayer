@@ -19,10 +19,10 @@ export const Playlist = () => {
   useEffect(() => {
     const getTracks = async () => {
       setIsLoading(true)
-      const res = await fetch('https://painassasin.online/catalog/track/all/')
-      const response = await res.json()
+      const req = await fetch('https://painassasin.online/catalog/track/all/')
+      const res = await req.json()
       setIsLoading(false)
-      setTracks(response)
+      setTracks(res)
     }
     getTracks()
   }, [])
@@ -47,7 +47,6 @@ export const Playlist = () => {
   }
 
   const handleTrackClick = (obj) => {
-    console.log(obj)
     dispatch(setTrackId(obj))
   }
 
@@ -67,12 +66,6 @@ export const Playlist = () => {
                   <PlaylistItem
                     handleClick={handleTrackClick}
                     key={track.id}
-                    // id={track.id}
-                    // title={track.name}
-                    // titleSpan={track.titleSpan}
-                    // author={track.author}
-                    // album={track.album}
-                    // time={track.duration_in_seconds}
                     track={track}
                   />
                 )
@@ -98,11 +91,6 @@ export const Playlist = () => {
                     handleClick={handleTrackClick}
                     key={track.id}
                     id={track.id}
-                    // title={track.name}
-                    // titleSpan={track.titleSpan}
-                    // author={track.author}
-                    // album={track.album}
-                    // time={track.duration_in_seconds}
                     track={track}
                   />
                 )
@@ -124,11 +112,6 @@ export const Playlist = () => {
                   handleClick={handleTrackClick}
                   key={track.id}
                   id={track.id}
-                  // title={track.name}
-                  // titleSpan={track.titleSpan}
-                  // author={track.author}
-                  // album={track.album}
-                  // time={track.duration_in_seconds}
                   track={track}
                 />
               )

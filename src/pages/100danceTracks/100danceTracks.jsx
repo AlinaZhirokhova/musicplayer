@@ -12,6 +12,7 @@ import { nanoid } from 'nanoid'
 import { SkeletonTrack } from '../../components/skeletonTrack/skeletonTrack.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearch } from '../../redux/Slices/filterSlice.js'
+import { setTrackId } from '../../redux/Slices/trackSlice.js'
 
 export const DanceTracks = () => {
   const [tracks, setTracks] = useState([])
@@ -42,6 +43,10 @@ export const DanceTracks = () => {
     dispatch(setSearch(''))
   }, [])
 
+  const handleTrackClick = (obj) => {
+    dispatch(setTrackId(obj))
+  }
+
   return (
     <S.Container style={styles}>
       <S.Main>
@@ -67,14 +72,10 @@ export const DanceTracks = () => {
                     .map((track) => {
                       return (
                         <PlaylistItem
-                          key={track.id}
-                          // id={track.id}
-                          // title={track.name}
-                          // titleSpan={track.titleSpan}
-                          // author={track.author}
-                          // album={track.album}
-                          // time={track.duration_in_seconds}
-                          track={track}
+                        handleClick={handleTrackClick}
+                        key={track.id}
+                        id={track.id}
+                        track={track}
                         />
                       )
                     })}

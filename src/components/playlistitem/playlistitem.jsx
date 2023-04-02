@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../context/ThemeContext'
 import { dislikeTrack, likeTrack, selectCurrentLikeTrack } from '../../redux/Slices/likeSlice.js'
 import { useEffect } from 'react'
-// import { setTrackId } from '../../redux/Slices/trackSlice.js'
 
 export const PlaylistItem = ({track, handleClick}) => {
   const dispatch = useDispatch()
