@@ -5,7 +5,7 @@ import * as S from './playlistStyle.jsx'
 import { SkeletonTrack } from '../skeletonTrack/skeletonTrack.jsx'
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTrackId } from '../../redux/Slices/trackSlice.js'
+import { setTrackId, setTracksRedux } from '../../redux/Slices/trackSlice.js'
 
 export const Playlist = () => {
   const [tracks, setTracks] = useState([])
@@ -23,20 +23,35 @@ export const Playlist = () => {
       const res = await req.json()
       setIsLoading(false)
       setTracks(res)
+      dispatch(setTracksRedux(res))
     }
     getTracks()
   }, [])
 
+
+  useEffect(() => {
+    dispatch(setTracksRedux(tracks))
+  },[tracks])
+
+  // useEffect(() => {
+  //   if (!isLoading) {
+  //     dispatch(setTracksRedux(tracks
+  //       ?.filter((track) => {
+  //         return author.includes(track.author)
+  //       })))
+  //   }
+  // },[author])
+
   if (!isLoading) {
     switch (year) {
       case 'new':
-        tracks.sort((a, b) => {
+        tracks?.sort((a, b) => {
           return new Date(b.release_date) - new Date(a.release_date)
-        })
+        })          
+    
         break
-
       case 'old':
-        tracks.sort((a, b) => {
+        tracks?.sort((a, b) => {
           return new Date(a.release_date) - new Date(b.release_date)
         })
         break
@@ -44,7 +59,7 @@ export const Playlist = () => {
       default:
         break
     }
-  }
+}
 
   const handleTrackClick = (obj) => {
     dispatch(setTrackId(obj))
@@ -66,6 +81,7 @@ export const Playlist = () => {
                   <PlaylistItem
                     handleClick={handleTrackClick}
                     key={track.id}
+                    id={track.id}
                     track={track}
                   />
                 )
@@ -98,6 +114,7 @@ export const Playlist = () => {
       </S.PlaylistContainer>
     )
   }
+
   return (
     <S.PlaylistContainer>
       {isLoading

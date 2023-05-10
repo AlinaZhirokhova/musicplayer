@@ -1,22 +1,27 @@
 import { Navigation } from '../../components/navigation/navigation.jsx'
 import { Search } from '../../components/search/search.jsx'
-import { Bar } from '../../components/bar/bar.jsx'
 import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
 import { MyPlaylist } from './myTracksStyle.jsx'
 import * as S from '../../AppStyle.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
 import { PlaylistItem } from '../../components/playlistitem/playlistitem.jsx'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setTrackId } from '../../redux/Slices/trackSlice.js'
 
 export const MyTracks = () => {
   const {currentTheme} = useContext(ThemeContext)
+  const dispatch = useDispatch()
+  const tracks = useSelector((state) => state.like.tracks)
+
+  const handleTrackClick = (obj) => {
+    dispatch(setTrackId(obj))
+  }
+
   let styles = {
     backgroundColor: currentTheme ? '#ffffff' : '#181818',
     color: currentTheme ? '#000000' : '#ffffff'
   }
-
-  const tracks = useSelector((state) => state.like.tracks)
 
   return (
     <S.Container style={styles}>
@@ -31,14 +36,9 @@ export const MyTracks = () => {
             { tracks?.map((track) => {
                     return (
                       <PlaylistItem
-                      
+                      handleClick={handleTrackClick}
                       key={track.id}
-                      // id={track.id}
-                      // title={track.name}
-                      // titleSpan={track.titleSpan}
-                      // author={track.author}
-                      // album={track.album}
-                      // time={track.duration_in_seconds}
+                      id={track.id}
                       track={track}
                       />
                     )
@@ -47,7 +47,6 @@ export const MyTracks = () => {
           </S.MainCenterBlockContent>
         </S.MainCenterBlock>
       </S.Main>
-      <Bar />
       <S.Footer></S.Footer>
     </S.Container>
   )

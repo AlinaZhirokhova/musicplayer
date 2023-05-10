@@ -15,32 +15,32 @@ export const FilterTitle = styled.div`
   margin-right: 15px;
 `
 
-// export const FilterButton = styled.button`
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 16px;
-//   line-height: 24px;
-//   border-radius: 60px;
-//   padding: 6px 20px;
-//   position: relative;
-//   background-color: transparent;
+export const FilterButton = styled.button`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 60px;
+  padding: 6px 20px;
+  position: relative;
+  background-color: transparent;
 
-//   &:not(:last-child) {
-//     margin-right: 10px;
-//   }
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 
-//   &:hover {
-//     border: 1px solid #d9b6ff;
-//     color: #d9b6ff;
-//     cursor: pointer;
-//   }
+  &:hover {
+    border: 1px solid #d9b6ff;
+    color: #d9b6ff;
+    cursor: pointer;
+  }
 
-//   &:active {
-//     border: 1px solid #ad61ff;
-//     color: #ad61ff;
-//     cursor: pointer;
-//   }
-// `
+  &:active {
+    border: 1px solid #ad61ff;
+    color: #ad61ff;
+    cursor: pointer;
+  }
+`
 
 export const FilterButtonDark = styled.button.attrs((props) => ({
   className: props.className,

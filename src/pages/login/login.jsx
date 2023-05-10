@@ -11,6 +11,7 @@ export const Login = () => {
   const [ body, setBody ] = useState(undefined)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
   useEffect(() => {
     const url = 'https://painassasin.online/user/login/'
     const config = {
@@ -62,7 +63,6 @@ export const Login = () => {
     const email = event.target[0].value
     const password = event.target[1].value
     setBody({ email, password})
-
   }
 
   return (

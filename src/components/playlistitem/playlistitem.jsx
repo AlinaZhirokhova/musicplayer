@@ -23,6 +23,7 @@ export const PlaylistItem = ({track, handleClick}) => {
   }
 
   const {currentTheme} = useContext(ThemeContext)
+
   let styles = {
     color: currentTheme ? '#000000' : '#ffffff'
   }
@@ -46,8 +47,7 @@ export const PlaylistItem = ({track, handleClick}) => {
     localStorage.setItem('likes', likesJson)
   }, [likeTracks])
 
-
-    return (
+  return (
       <S.PlaylistItemContainer id={track.id} >
         <S.Track >
           <S.TrackTitle>
@@ -72,8 +72,9 @@ export const PlaylistItem = ({track, handleClick}) => {
             </S.TrackAlbumLink>
           </S.TrackAlbum>
           <S.TrackTime>
-            { like ? <S.UnlikeIconSvg onClick={handleDislike} alt="time"/> : <S.LikeIconSvg onClick={handleLike} alt="time"/>}
-            
+            { like 
+            ? <S.UnlikeIconSvg onClick={handleDislike} alt="like"/> 
+            : <S.LikeIconSvg onClick={handleLike} alt="like"/>}
             <S.TrackTimeText>{getTime(track.duration_in_seconds)}</S.TrackTimeText>
           </S.TrackTime>
         </S.Track>

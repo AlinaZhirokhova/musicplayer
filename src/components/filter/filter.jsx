@@ -177,6 +177,7 @@ export const Filter = () => {
             </S.PopupFilterYearDark>
           )}
         </S.FilterButtonDark>
+        
         <S.FilterButtonDark
           onClick={handleClick}
           data-type="genre"

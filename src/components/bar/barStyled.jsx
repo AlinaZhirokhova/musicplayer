@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { ReactComponent as PlayIcon } from '../../img/icon/play.svg'
 import { ReactComponent as StopIcon } from '../../img/icon/stop.svg'
 import { ReactComponent as VolumeIcon } from '../../img/icon/volume.svg'
+import { ReactComponent as LikeIcon } from '../../img/icon/like.svg'
+import { ReactComponent as DislikeIcon } from '../../img/icon/dislike.svg'
 
 export const BarContainer = styled.div`
   position: fixed;
@@ -45,10 +47,10 @@ export const LikeDisTrackPlay = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 26%;
+  gap: 20px;
 `
 
 export const ProgressBar = styled.input`
-  // display: none;
   width: 100%;
   height: 5px;
   -webkit-appearance: none;
@@ -127,125 +129,6 @@ export const StopIconSvg = styled(StopIcon)`
   width: 22px;
   height: 20px;
   fill: #d9d9d9;
-`
-
-export const BarAudio = styled.audio`
-  display: none;
-  // visibility: hidden;
-  // position: fixed;
-  // bottom: 73px;
-  // left: 0;
-  // width: 100%;
-  // height: 5px;
-  // background: rgba(28, 28, 28);
-
-
-  // &::-webkit-media-controls-panel {
-  //   background: rgba(28, 28, 28);
-  //   height: 5px
-  // }
-
-  // &::-webkit-media-controls-play-button {
-  //   display: none;
-  // }
-
-  // ::-ms-thumb {
-  //   -webkit-appearance: none;
-  //   width: 1em;
-  //   height: 1em;
-  //   border-radius: 50%;
-  //   cursor: pointer;
-  //   opacity: 0;
-  //   transition: all .1s;
-  //   background-color: #a94672;
-  // }
-
-  // &::-webkit-media-controls-mute-button {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-current-time-display {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-time-remaining-display {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-volume-slider {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-volume-slider-container {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-timeline {
-  //   width: 100%;
-  //   height: 5px;
-  //   -webkit-appearance: none;
-  //   -moz-appearance: none;
-  //   appearance: none;
-  //   background-color: white;
-  //   visibility: visible;
-  // }
-
-  // &::-webkit-media-controls-timeline-container {
-  //   width: 100%;
-  //   height: 5px;
-  //   -webkit-appearance: none;
-  //   -moz-appearance: none;
-  //   appearance: none;
-  //   background-color: yellow;
-  // }
-
-  // &::-webkit-media-controls-seek-back-button{
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-seek-forward-button{
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-rewind-button{
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-return-to-realtime-button{
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-toggle-closed-captions-button{
-  //   display: none;
-  // }
-
-  // &::-internal-media-controls-overflow-button {
-  //   display: none;
-  // }
-
-  // &::-webkit-media-controls-volume-control-container{
-  //   display: none;
-  // }
-
-  // &::-internal-media-controls-overflow-button{
-  //   width: 0px;
-  // }
-
-  // &::-webkit-slider-thumb {
-  //     background: #ad61ff;
-  //     width: 5px;
-  //     height: 5px;
-  //     cursor: pointer;
-  //     -webkit-appearance: none;
-  //   }
-  
-  //   &::-moz-range-thumb {
-  //     background: #ad61ff;
-  //     width: 5px;
-  //     height: 5px;
-  //     cursor: pointer;
-  //     -webkit-appearance: none;
-  //   }
 `
 
 export const BlockVolume = styled.div`
@@ -348,4 +231,43 @@ export const VolumeIconSvg = styled(VolumeIcon)`
   height: 18px;
   fill: transparent;
   margin-left: 50px;
+`
+
+export const LikeIconSvgDark = styled(LikeIcon)`
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+
+  &:hover {
+    stroke: #ACACAC;
+  }
+
+  &:active {
+    stroke: #ffffff;
+    fill: #696969;
+  }
+`
+
+export const LikeIconSvgDarkActive = styled(LikeIcon)`
+  stroke: #ffffff;
+  fill: #696969;
+`
+
+export const DislikeIconSvgDark = styled(DislikeIcon)`
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #696969;
+
+  &:hover {
+    stroke: #ACACAC;
+  }
+
+`
+
+export const DislikeIconSvgDarkActive = styled(DislikeIcon)`
+  stroke: #ffffff;
+  fill: #696969;
+  
 `

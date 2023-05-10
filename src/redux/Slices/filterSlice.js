@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   search: '',
   year: '',
-  author: [],
+  author: '',
   genre: ''
 };
 
@@ -33,4 +33,4 @@ export const filterSlice = createSlice({
 })
 
 export const { setSearch, setYear, addGenre, addAuthor, deleteGenre, deleteAuthor } = filterSlice.actions
-export default filterSlice.reducer;
+export default filterSlice.reducer

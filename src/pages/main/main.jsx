@@ -4,26 +4,17 @@ import { Filter } from '../../components/filter/filter.jsx'
 import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
 import { Playlist } from '../../components/playlist/playlist.jsx'
 import { Sidebar } from '../../components/sidebar/sidebar.jsx'
-import { Bar } from '../../components/bar/bar.jsx'
 import * as S from '../../AppStyle.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
-import { useSelector } from 'react-redux'
 
-export const Main = () => {
-  const { trackId } = useSelector((state) => state.id)
-  
-  // const { author: authorRedux } = useSelector((state) => state.filter)
-  
-  
+export const Main = () => {  
   const {currentTheme} = useContext(ThemeContext)
-
 
   let styles = {
     backgroundColor: currentTheme ? '#ffffff' : '#181818',
     color: currentTheme ? '#000000' : '#ffffff'
   }
-
 
   return (
     <S.Container style={styles}>
@@ -40,7 +31,6 @@ export const Main = () => {
         </S.MainCenterBlock>
         <Sidebar />
       </S.Main>
-      {Object.keys(trackId).length ? <Bar /> : ''}
       <S.Footer></S.Footer>
     </S.Container>
   )

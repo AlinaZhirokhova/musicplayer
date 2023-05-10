@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigation } from '../../components/navigation/navigation.jsx'
 import { Search } from '../../components/search/search.jsx'
-import { Bar } from '../../components/bar/bar.jsx'
 import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
 import { DayPlaylistTracks } from './dayplaylistStyle.jsx'
 import * as S from '../../AppStyle.jsx'
@@ -12,6 +11,7 @@ import { SkeletonTrack } from '../../components/skeletonTrack/skeletonTrack.jsx'
 import { nanoid } from 'nanoid'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSearch } from '../../redux/Slices/filterSlice.js'
+import { setTrackId } from '../../redux/Slices/trackSlice.js'
 
 export const DayPlaylist = () => {
   const [tracks, setTracks] = useState([])
@@ -39,6 +39,10 @@ export const DayPlaylist = () => {
   useEffect(() => {
     dispatch(setSearch(''))
   },[])
+
+  const handleTrackClick = (obj) => {
+    dispatch(setTrackId(obj))
+  }
   
   return (
     <S.Container style={styles}>
@@ -60,13 +64,9 @@ export const DayPlaylist = () => {
                 .map((track) => {
                     return (
                       <PlaylistItem
+                      handleClick={handleTrackClick}
                       key={track.id}
-                      // id={track.id}
-                      // title={track.name}
-                      // titleSpan={track.titleSpan}
-                      // author={track.author}
-                      // album={track.album}
-                      // time={track.duration_in_seconds}
+                      id={track.id}
                       track={track}
                       />
                     )
@@ -75,7 +75,6 @@ export const DayPlaylist = () => {
           </S.MainCenterBlockContent>
         </S.MainCenterBlock>
       </S.Main>
-      <Bar />
       <S.Footer></S.Footer>
     </S.Container>
   )

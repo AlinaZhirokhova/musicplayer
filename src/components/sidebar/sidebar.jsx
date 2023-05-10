@@ -3,12 +3,12 @@ import img2 from '../../img/playlist02.png'
 import img3 from '../../img/playlist03.png'
 import * as S from './sidebarStyle.jsx'
 import { SkeletonSidebar } from '../skeletonSidebar/skeletonSidebar'
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
 
 export const Sidebar = () => {
   const [isLoading, setIsLoading] = useState(true)
+
   setTimeout(() => {
     setIsLoading(false)
   }, 2000)
@@ -34,7 +34,7 @@ export const Sidebar = () => {
                 <S.ImgSidebar src={img1} alt="day's playlist" />
               </S.LinkSidebar>
             </S.ItemSidebar>
-            <S.ItemSidebar>
+            <S.ItemSidebar >
               <S.LinkSidebar to="/dancetracks">
                 <S.ImgSidebar src={img2} alt="day's playlist" />
               </S.LinkSidebar>

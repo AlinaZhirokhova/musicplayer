@@ -17,6 +17,11 @@ export const LikeIconSvgDark = styled(LikeIcon)`
   }
 `
 
+export const LikeIconSvgDarkActive = styled(LikeIcon)`
+  stroke: #ffffff;
+  fill: #696969;
+`
+
 export const LikeIconSvgLight= styled(LikeIcon)`
   width: 14px;
   height: 12px;

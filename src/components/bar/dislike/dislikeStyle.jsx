@@ -15,11 +15,12 @@ export const DislikeIconSvgDark = styled(DislikeIcon)`
   &:hover {
     stroke: #ACACAC;
   }
+`
 
-  &:active {
-    stroke: #ffffff;
-    fill: #696969;
-  }
+export const DislikeIconSvgDarkActive = styled(DislikeIcon)`
+  stroke: #ffffff;
+  fill: #696969;
+  
 `
 
 export const DislikeIconSvgLight = styled(DislikeIcon)`

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigation } from '../../components/navigation/navigation.jsx'
 import { Search } from '../../components/search/search.jsx'
-import { Bar } from '../../components/bar/bar.jsx'
 import { PlaylistTitle } from '../../components/playlisttitle/playlisttitle.jsx'
 import { IndiPlaylist } from './indiStyle.jsx'
 import * as S from '../../AppStyle.jsx'
@@ -12,13 +11,14 @@ import { nanoid } from 'nanoid'
 import { SkeletonTrack } from '../../components/skeletonTrack/skeletonTrack.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearch } from '../../redux/Slices/filterSlice.js'
+import { setTrackId } from '../../redux/Slices/trackSlice.js'
 
 export const Indi = () => {
   const [tracks, setTracks] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const search = useSelector((state) => state.filter.search)
   const dispatch = useDispatch()
-
+ 
   const { currentTheme } = useContext(ThemeContext)
   let styles = {
     backgroundColor: currentTheme ? '#ffffff' : '#181818',
@@ -41,6 +41,10 @@ export const Indi = () => {
   useEffect(() => {
     dispatch(setSearch(''))
   }, [])
+
+  const handleTrackClick = (obj) => {
+    dispatch(setTrackId(obj))
+  }
 
   return (
     <S.Container style={styles}>
@@ -65,13 +69,9 @@ export const Indi = () => {
                     .map((track) => {
                       return (
                         <PlaylistItem
+                          handleClick={handleTrackClick}
                           key={track.id}
-                          // id={track.id}
-                          // title={track.name}
-                          // titleSpan={track.titleSpan}
-                          // author={track.author}
-                          // album={track.album}
-                          // time={track.duration_in_seconds}
+                          id={track.id}
                           track={track}
                         />
                       )
@@ -80,7 +80,6 @@ export const Indi = () => {
           </S.MainCenterBlockContent>
         </S.MainCenterBlock>
       </S.Main>
-      <Bar />
       <S.Footer></S.Footer>
     </S.Container>
   )

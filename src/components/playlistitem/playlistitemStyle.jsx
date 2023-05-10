@@ -101,6 +101,6 @@ export const UnlikeIconSvg = styled(LikeIcon)`
   width: 14px;
   height: 12px;
   margin-right: 17px;
-  fill: red;
-  stroke: red;
+  fill: #AD61FF;
+  stroke: #AD61FF;
 `

@@ -11,13 +11,13 @@ export const likeSlice = createSlice({
   reducers: {
     likeTrack: (state, action) => {
         const currentTrack = state.tracks.find((object) => {
-            return object.id === action.payload.id
+          return object.id === action.payload.id
         })
 
         if (currentTrack) {
-            return
+          return
         } else {
-            state.tracks.push(action.payload)
+          state.tracks.push(action.payload)
         }
     },
     dislikeTrack: (state, action) => {
