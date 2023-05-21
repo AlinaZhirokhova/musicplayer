@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { Main } from './pages/main/main.jsx'
 import { MyTracks } from './pages/mytracks/mytracks.jsx'
 import { Indi } from './pages/indi/indi.jsx'
@@ -7,35 +7,34 @@ import { DanceTracks } from './pages/100danceTracks/100danceTracks.jsx'
 import { NotFound } from './pages/notFound/notFound.jsx'
 import { Login } from './pages/login/login.jsx'
 import { Register } from './pages/register/register.jsx'
-// import { useContext } from 'react'
-// import { AuthContext } from './context/AuthContext.js'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext.js'
 import { Bar } from './components/bar/bar.jsx'
 import { useSelector } from 'react-redux'
 
 export const AppRoutes = () => {
   const { trackId } = useSelector((state) => state.id)
 
-  // const { currentUser } = useContext(AuthContext)
-  // const ProtectedRoute = ({ children }) => {
-  //   if (currentUser) {
-  //     return children
-  //   } else {
-  //     return <Navigate to={'/login'} />
-  //   }
-  // }
+  const { currentUser } = useContext(AuthContext)
+  const ProtectedRoute = ({ children }) => {
+    if (currentUser) {
+      return children
+    } else {
+      return <Navigate to={'/login'} />
+    }
+  }
 
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <>
+          <ProtectedRoute>
+            <>
             <Main />
             {Object.keys(trackId).length ? <Bar /> : ''}
           </> 
-          // <ProtectedRoute>
-            
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       />
       <Route path="/mytracks" element={
