@@ -11,10 +11,13 @@ export const ShuffleIconSvgDark = styled(ShuffleIcon)`
   &:hover {
     stroke: #ACACAC;
   }
+`
 
-  &:active {
-    stroke: #ffffff;
-  }
+export const ShuffleIconSvgDarkActive = styled(ShuffleIcon)`
+  width: 22px;
+  height: 14px;
+  fill: transparent;
+  stroke: #ffffff;
 `
 
 export const ShuffleIconSvgLight = styled(ShuffleIcon)`
@@ -26,8 +29,11 @@ export const ShuffleIconSvgLight = styled(ShuffleIcon)`
   &:hover {
     stroke: #707070;
   }
+`
 
-  &:active {
-    stroke: #000000;
-  }
+export const ShuffleIconSvgLightActive = styled(ShuffleIcon)`
+  width: 22px;
+  height: 14px;
+  fill: transparent;
+  stroke: #000000;
 `

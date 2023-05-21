@@ -15,20 +15,13 @@ export const RepeatIconSvgDark = styled(RepeatIcon)`
   &:hover {
     stroke: #acacac;
   }
-
-  &:active {
-    stroke: #ffffff;
-  }
 `
 
 export const RepeatIconSvgDarkActive = styled(RepeatIcon)`
-
-  &:active {
-    stroke: #ffffff;
-    width: 20px;
-    height: 15px;
-    fill: transparent;
-  }
+  stroke: #ffffff;
+  width: 20px;
+  height: 15px;
+  fill: transparent;
 `
 
 export const RepeatIconSvgLight = styled(RepeatIcon)`
@@ -40,8 +33,11 @@ export const RepeatIconSvgLight = styled(RepeatIcon)`
   &:hover {
     stroke: #707070;
   }
+`
 
-  &:active {
-    stroke: #000000;
-  }
+export const RepeatIconSvgLightActive = styled(RepeatIcon)`
+  width: 20px;
+  height: 15px;
+  fill: transparent;
+  stroke: #000000;
 `

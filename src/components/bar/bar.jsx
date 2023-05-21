@@ -8,7 +8,11 @@ import { Prev } from './prev/prev'
 import { Next } from './next/next'
 import { Repeat } from './repeat/repeat'
 import { Shuffle } from './shuffle/shuffle'
-import { dislikeTrack, likeTrack, selectCurrentLikeTrack } from '../../redux/Slices/likeSlice'
+import {
+  dislikeTrack,
+  likeTrack,
+  selectCurrentLikeTrack,
+} from '../../redux/Slices/likeSlice'
 
 export const Bar = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -19,10 +23,10 @@ export const Bar = () => {
   const progressRef = useRef()
   const audioRef = useRef(null)
   const currentLike = useSelector(selectCurrentLikeTrack(trackId.id))
-  const [ like, setLike ] = useState(currentLike ? true : false)
-  const [ dislike, setDislike ] = useState(currentLike ? true : false)
   const dispatch = useDispatch()
-  
+  const [isShuffle, setIsShuffle] = useState(false)
+  const [isRepeat, setIsRepeat] = useState(false)
+
   useEffect(() => {
     audioRef.current?.pause()
     audioRef.current = new Audio(trackId.track_file)
@@ -34,13 +38,9 @@ export const Bar = () => {
   }, [trackId])
 
   const progressChange = () => {
-    audioRef.current.currentTime = progressRef.current.value / 1000 * audioRef.current.duration
+    audioRef.current.currentTime =
+      (progressRef.current.value / 1000) * audioRef.current.duration
   }
-
-  // useEffect(() => {
-  //   setAudio(trackId.track_file)
-  //   console.log('fjfjh')
-  // }, [trackId])
 
   setTimeout(() => {
     setIsLoading(false)
@@ -83,17 +83,13 @@ export const Bar = () => {
 
   let styleImg = {
     stroke: currentTheme ? '#fffffff' : '#B1B1B1',
-  }  
+  }
 
-  function handleLike () {
-    setLike(true)
-    setDislike(false)
+  function handleLike() {
     dispatch(likeTrack(trackId))
   }
 
-  function handleDislike () {
-    setDislike(true)
-    setLike(false)
+  function handleDislike() {
     dispatch(dislikeTrack(trackId))
   }
 
@@ -121,18 +117,22 @@ export const Bar = () => {
                 )}
               </S.Play>
               <Next />
-              <Repeat/>
-              <Shuffle />
+              <Repeat {...{ isRepeat, setIsRepeat }} />
+              <Shuffle {...{ isShuffle, setIsShuffle }} />
             </S.ControlsPlayer>
             <S.PlayerTrackPlay>
               {isLoading ? <SkeletonBar /> : <Contain />}
               <S.LikeDisTrackPlay>
-                { like 
-                ? <S.LikeIconSvgDarkActive alt="like"/> 
-                : <S.LikeIconSvgDark onClick={handleLike} alt="like"/>}
-                { dislike 
-                ? <S.DislikeIconSvgDarkActive alt="dislike"/> 
-                : <S.DislikeIconSvgDark onClick={handleDislike} alt="like"/>}  
+                {currentLike ? (
+                  <S.LikeIconSvgDarkActive alt="like" />
+                ) : (
+                  <S.LikeIconSvgDark onClick={handleLike} alt="like" />
+                )}
+                {currentLike ? (
+                  <S.DislikeIconSvgDark onClick={handleDislike} alt="dislike" />
+                ) : (
+                  <S.DislikeIconSvgDark alt="dislike" />
+                )}
               </S.LikeDisTrackPlay>
             </S.PlayerTrackPlay>
           </S.PlayerPlayerBar>

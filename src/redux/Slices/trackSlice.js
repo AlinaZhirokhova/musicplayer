@@ -17,7 +17,6 @@ export const trackSlice = createSlice({
     },
     nextTrack: (state) => {
       const currentIndex = state.tracks.findIndex((el) => el.id === state.trackId.id)
-      console.log(state.tracks.length)
       if (state.trackId.id < state.tracks.length - 1) {
         state.trackId = state.tracks[currentIndex + 1]
       } else {

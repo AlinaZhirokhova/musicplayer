@@ -8,15 +8,17 @@ import axios from 'axios'
 export const Register = () => {
   const [ body, setBody ] = useState(undefined)
   const navigate = useNavigate()
-  
+
   useEffect(() => {
     const url = 'https://painassasin.online/user/signup/'
+    
     const config = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
       }
     }
+
     if (body!== undefined){
       axios.post(url, body, config).then((res) => {
       console.log(res)

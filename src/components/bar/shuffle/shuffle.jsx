@@ -3,19 +3,31 @@ import { Icon } from '../barStyled.jsx'
 import { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 
-export const Shuffle = () => {
+export const Shuffle = ({ isShuffle, setIsShuffle }) => {
   const {currentTheme} = useContext(ThemeContext)
+
+  const changeShuffle = () => {
+    setIsShuffle(!isShuffle);
+  };
 
   if (currentTheme) {
     return (
       <Icon>
-        <S.ShuffleIconSvgLight alt="shuffle" />
+        {isShuffle ? (
+          <S.ShuffleIconSvgLightActive alt="repeat" onClick={changeShuffle} />
+        ) : (
+          <S.ShuffleIconSvgLight alt="repeat" onClick={changeShuffle} />
+        )}
       </Icon>
     )
   } else {
     return (
       <Icon>
-        <S.ShuffleIconSvgDark alt="shuffle" />
+        {isShuffle ? (
+          <S.ShuffleIconSvgDarkActive alt="repeat" onClick={changeShuffle} />
+        ) : (
+          <S.ShuffleIconSvgDark alt="repeat" onClick={changeShuffle} />
+        )}
       </Icon>
     )
   }

@@ -28,10 +28,9 @@ export const Playlist = () => {
     getTracks()
   }, [])
 
-
   useEffect(() => {
     dispatch(setTracksRedux(tracks))
-  },[tracks])
+  }, [tracks])
 
   // useEffect(() => {
   //   if (!isLoading) {
@@ -42,24 +41,28 @@ export const Playlist = () => {
   //   }
   // },[author])
 
-  if (!isLoading) {
-    switch (year) {
-      case 'new':
-        tracks?.sort((a, b) => {
-          return new Date(b.release_date) - new Date(a.release_date)
-        })          
-    
-        break
-      case 'old':
-        tracks?.sort((a, b) => {
-          return new Date(a.release_date) - new Date(b.release_date)
-        })
-        break
-
-      default:
-        break
+  useEffect(() => {
+    if (!isLoading) {
+      switch (year) {
+        case 'new':
+          setTracks(
+            [...tracks]?.sort((a, b) => {
+            return new Date(b.release_date) - new Date(a.release_date)
+            })
+          )
+          break
+        case 'old':
+          setTracks(
+            [...tracks]?.sort((a, b) => {
+            return new Date(a.release_date) - new Date(b.release_date)
+            })
+          )
+          break
+        default:
+          break
+      }
     }
-}
+  },[year])
 
   const handleTrackClick = (obj) => {
     dispatch(setTrackId(obj))

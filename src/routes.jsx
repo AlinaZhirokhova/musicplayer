@@ -63,7 +63,7 @@ export const AppRoutes = () => {
             <DanceTracks />
             {Object.keys(trackId).length ? <Bar /> : ''}
           </>
-        }  
+        }
       />
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login />} />
