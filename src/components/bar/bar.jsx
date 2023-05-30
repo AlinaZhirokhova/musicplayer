@@ -116,7 +116,7 @@ export const Bar = () => {
                   <S.PlayIconSvg style={styles} alt="play" />
                 )}
               </S.Play>
-              <Next />
+              <Next {...{ isRepeat, setIsRepeat }}/>
               <Repeat {...{ isRepeat, setIsRepeat }} />
               <Shuffle {...{ isShuffle, setIsShuffle }} />
             </S.ControlsPlayer>

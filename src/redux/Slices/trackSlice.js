@@ -15,13 +15,21 @@ export const trackSlice = createSlice({
     setTracksRedux: (state, action) => {
       state.tracks = action.payload
     },
-    nextTrack: (state) => {
+    nextTrack: (state, action) => {
       const currentIndex = state.tracks.findIndex((el) => el.id === state.trackId.id)
       if (state.trackId.id < state.tracks.length - 1) {
         state.trackId = state.tracks[currentIndex + 1]
       } else {
         state.trackId = state.tracks[0]
       }
+
+      if (action.payload === 'repeat') {
+        state.trackId = state.tracks[currentIndex]
+        return
+      } 
+      // if (action.payload === 'shuffle') {
+        
+      // } 
     },
     prevTrack: (state) => {
       const currentIndex = state.tracks.findIndex((el) => el.id === state.trackId.id)
@@ -31,8 +39,12 @@ export const trackSlice = createSlice({
         state.trackId = state.tracks[currentIndex - 1]
       }
     },
+    repeatTrack: (state) => {
+      const currentIndex = state.tracks.findIndex((el) => el.id === state.trackId.id)
+      state.trackId = state.tracks[currentIndex]
+    }
   },
 })
 
-export const { setTrackId, setTracksRedux, nextTrack, prevTrack } = trackSlice.actions
+export const { setTrackId, setTracksRedux, nextTrack, prevTrack, repeatTrack } = trackSlice.actions
 export default trackSlice.reducer

@@ -2,20 +2,28 @@ import * as S from './nextStyle'
 import { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 import { useDispatch } from 'react-redux'
-import { nextTrack } from '../../../redux/Slices/trackSlice'
+import { nextTrack, repeatTrack } from '../../../redux/Slices/trackSlice'
 
-export const Next = () => {
+export const Next = ({isRepeat}) => {
   const {currentTheme} = useContext(ThemeContext)
   const dispatch = useDispatch()
+  // const { trackId } = useSelector((state) => state.id)
 
   function handleClick () {
-    dispatch(nextTrack())
+    // dispatch(nextTrack())
+    if (isRepeat) {
+      dispatch(repeatTrack())
+      console.log('fff')
+    } else {
+      dispatch(nextTrack())
+    }
+    
   }
   
   if (currentTheme) {
     return (
-      <S.NextPlayer>
-        <S.NextIconSvgLight alt="next" />
+      <S.NextPlayer onClick={handleClick}>
+        <S.NextIconSvgLight alt="next"/>
       </S.NextPlayer>
     )
   } else {
