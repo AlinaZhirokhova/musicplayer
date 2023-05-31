@@ -7,7 +7,7 @@ export const Shuffle = ({ isShuffle, setIsShuffle }) => {
   const {currentTheme} = useContext(ThemeContext)
 
   const changeShuffle = () => {
-    setIsShuffle(!isShuffle);
+    setIsShuffle(e => !e) // вот тут не совсем поняла, почему нужно изменить то, что в скобках... !isShuffle указать нельзя? есть разница какая-то получается?
   };
 
   if (currentTheme) {

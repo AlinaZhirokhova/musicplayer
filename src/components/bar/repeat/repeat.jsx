@@ -7,7 +7,6 @@ export const Repeat = ({ isRepeat, setIsRepeat }) => {
 
   function changeRepeat() {
     setIsRepeat(!isRepeat)
-
   }
 
   if (currentTheme) {

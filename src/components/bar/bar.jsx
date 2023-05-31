@@ -13,6 +13,7 @@ import {
   likeTrack,
   selectCurrentLikeTrack,
 } from '../../redux/Slices/likeSlice'
+import { nextTrack } from '../../redux/Slices/trackSlice'
 
 export const Bar = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -30,12 +31,32 @@ export const Bar = () => {
   useEffect(() => {
     audioRef.current?.pause()
     audioRef.current = new Audio(trackId.track_file)
+    
     audioRef.current.ontimeupdate = () => {
       const progress =
         (audioRef.current.currentTime / audioRef.current.duration) * 1000
       progressRef.current.value = progress
-    }
+    } // добавила сюда тоже логику для линии прогресса, а то получалось, что она меняется только при изменении состояния репит и шафл, а нужно чтобы менялась и при изменении трека
   }, [trackId])
+
+  useEffect(() => {
+    if (!audioRef.current) return
+
+    audioRef.current.ontimeupdate = () => {
+      const progress =
+        (audioRef.current.currentTime / audioRef.current.duration) * 1000
+      progressRef.current.value = progress
+
+      if (Number(progressRef.current.value) === 1000) { // проверяем условие, что вся полоса прогресса заполнена
+        if (isRepeat) { // проверяем включен ли репит
+          audioRef.current.currentTime = 0 
+          audioRef.current.play() // если включен, то обнуляем время и снова воспроизводим трек
+        } else {
+          dispatch(nextTrack(isShuffle ? 'shuffle' : 'default')) // если репит не включен, то включаем следующий трек, который зависит от того, включен ли шафл
+        }
+      }
+    }
+  }, [isRepeat, isShuffle]) // юзэффект реагирует на изменения состояния репит или шафл
 
   const progressChange = () => {
     audioRef.current.currentTime =
@@ -116,7 +137,7 @@ export const Bar = () => {
                   <S.PlayIconSvg style={styles} alt="play" />
                 )}
               </S.Play>
-              <Next {...{ isRepeat, setIsRepeat }}/>
+              <Next {...{ isRepeat, isShuffle }}/>
               <Repeat {...{ isRepeat, setIsRepeat }} />
               <Shuffle {...{ isShuffle, setIsShuffle }} />
             </S.ControlsPlayer>
